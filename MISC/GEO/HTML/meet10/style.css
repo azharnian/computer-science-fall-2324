@@ -1,0 +1,122 @@
+:root {
+    --header-height: 50px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:  border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: #537188;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header div.logo {
+    color: white;
+}
+
+header div.login-btn {
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #537188;
+    background-color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+header span.burger-btn {
+    display: none;
+    font-size: 25pt;
+}
+
+nav ul {
+    width: 600px;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: gray;
+    text-transform: capitalize;
+}
+
+section.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: url("https://www.ptba.co.id/uploads/ptba_berita/20221202070720-2022-12-02ptba_berita070640.jpg") no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+div.hero-content {
+    position: relative;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.transparent-hero {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), #537188);
+}
+
+section.info {
+    width: 100%;
+    height: auto;
+    /* background-color: aquamarine; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+div.box {
+    width: auto;
+    height: 300px;
+}
+
+div.one {
+    background-color: white;
+}
+
+div.two {
+    background-color: gray;
+}
+
+div.three {
+    background-color: white;
+}
+
+div.four {
+    background-color: gray;
+}

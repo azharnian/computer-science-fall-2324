@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 200vh;
+        }
+
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            background-color: grey;
+            border: 1px black solid;
+        }
+
+        .box {
+            width: 80px;
+            height: 80px;
+            border: 1px black solid;
+        }
+
+        .one {
+            margin-left: 100px;
+            /* left: 300px; */
+            background-color: red;
+        }
+
+        .two {
+            /* margin-left: -20px; */
+            position: relative;
+            /* top: 80px; */
+            left: 300px;
+            background-color: yellow;
+        }
+
+        .three {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: green;
+        }
+
+        div.whatsapp-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: greenyellow;
+            font-size: 50pt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+    </div>
+    <div class="whatsapp-box">
+        <i class='bx bxl-whatsapp'></i>
+    </div>
+</body>
+</html>

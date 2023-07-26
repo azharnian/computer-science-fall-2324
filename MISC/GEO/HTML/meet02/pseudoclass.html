@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Class</title>
+    <style>
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            /* background-color: greenyellow; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        footer {
+            width: 100%;
+            height: 30px;
+            /* background-color: antiquewhite; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer p {
+            /* padding: 15px 0px;
+            text-align: center;
+            margin: 0 auto; */
+        }
+
+        li a {
+            color: lightblue;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: Verdana, sans-serif;
+        }
+
+        /* unvisited link */
+        a:link {
+            color: black;
+        }
+
+        /* visited link */
+        a:visited {
+            color: black;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: #FF00FF;
+        }
+
+        /* selected link */
+        a:active {
+            color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="content">
+            <h1>
+                Sample link style
+            </h1>
+            <ol>
+                <li>
+                    <a href="https://www.google.com" target="_blank">The first time you see me, I should be a light blue, bold, non-underlined link in the Verdana font.</a>
+                </li>
+                <li>
+                    <a href="#">The first time you see me, I should be a light blue, bold, non-underlined link in the Verdana font.</a>
+                </li>
+            </ol>
+        </section>
+        
+        <footer>
+            <p>
+                Contact Us : <a href="#" class="footerlink">anas.sty@gmail.com</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

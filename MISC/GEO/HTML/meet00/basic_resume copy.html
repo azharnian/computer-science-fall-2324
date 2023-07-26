@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My First HTML Resume</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	 <style>
+       
+	   * {
+		padding: 0;
+		margin: 0;
+	   }
+
+	   body {
+		/* font-family: Arial, Helvetica, sans-serif; */
+		font-family: 'Lato', sans-serif;
+	   }
+
+	   header img {
+		width: 50px;
+		height: auto;
+	   }
+
+	   header {
+		width: 100%;
+		height: auto;
+		/* background-color: aquamarine; */
+		text-align: center;
+		/* border: 1px black solid; */
+		margin: 0 0 50px 0;
+		padding: 20px;
+		box-sizing: border-box;
+	   }
+
+	   section.content {
+		width: 60%;
+		height: auto;
+		/* background-color: aqua; */
+		/* border: 1px black solid; */
+		margin: 10px auto;
+		padding: 20px;
+		box-sizing: border-box;
+	   }
+
+	   p.category-label {
+		font-size: 18pt;
+		margin-bottom: 10px;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1.5pt;
+		word-spacing: 5pt;
+	   }
+
+	   section.content ul {
+		list-style: none;
+	   }
+
+    </style>
+</head>
+<body>
+    <header>
+		<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/640px-Patrick_Star.svg.png" alt="patrick">
+		<h1>Jane Doe</h1>
+		<p class="contactinfo">
+			1234 Main Street, Sometown, CA 93829<br>
+			tel: 555-555-1212, email:jane@doe.com
+		</p>
+	</header>
+	<section class="content">
+		<p class="category-label">
+			summary of qualifications
+		</p>
+		<!-- unordered list -->
+		<ul>
+			<li>
+				Highly skilled and dedicated ...
+			</li>
+			<li>
+				Provide comprehensive direction ....
+			</li>
+			<li>
+				Computer proficient in ...
+			</li>
+		</ul>
+	</section>
+	<section class="content">
+		<p class="category-label">
+			profesional experience
+		</p>
+		<div class="indented">
+			<p>
+				<strong>
+					Operation Manager, Super Awesome Company
+				</strong>
+			</p>
+			<ul>
+				<li>
+					Direct All...
+				</li>
+				<li>
+					Coordinate work ...
+				</li>
+				<li>
+					Generally in charge of everything
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,26 @@
+@media screen and (max-width: 576px) {
+    header {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    header nav, header span.login-btn {
+        display: none;
+    }
+
+    header span.menu-btn i {
+        display: inline-block;
+    }
+
+    section.hero {
+        height: 300px;
+    }
+
+    section.hero h3, section.hero p{
+        display: none;
+    }
+
+    section.info {
+        grid-template-columns: 1fr;
+    }
+}

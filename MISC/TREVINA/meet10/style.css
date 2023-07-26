@@ -1,0 +1,141 @@
+:root {
+    --header-height : 50px;
+    --main-color-one : #537188;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--main-color-one);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+header nav {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header span.login-btn {
+    /* display: inline-flex; */
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: center;
+    line-height: 30px;
+}
+
+header span.login-btn:hover a:hover {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: gray;
+    text-align: center;
+    line-height: 30px;
+}
+
+header span.login-btn a {
+    color: var(--main-color-one);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header span.login-btn a:hover {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header span.menu-btn i {
+    display: none;
+    font-size: 40px;
+}
+
+section.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: url("https://www.ptba.co.id/uploads/ptba_berita/20221202070720-2022-12-02ptba_berita070640.jpg") no-repeat center center / cover;
+}
+
+section.hero div.hero-content {
+    position: relative;
+    z-index: 999;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+section.hero div.hero-content p{
+    width: 70%;
+    text-align: center;
+}
+
+section.hero div.hero-transparent {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), var(--main-color-one));
+    top: 0px;
+    left: 0px;
+}
+
+section.info {
+    width: 100%;
+    height: auto;
+    background-color: yellowgreen;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+section.info div.box {
+    width: auto;
+    height: 300px;
+    background-color: salmon;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+section.info div.box span.item i {
+    font-size: 80px;
+}
+
+section.info div.box p {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5pt;
+    word-spacing: 4pt;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .border-box {
+            height: 100px;
+            box-sizing: content-box;
+        }
+
+        .box {
+            background-color: rgb(0, 195, 255);
+            height: 50px;
+        }
+
+        .bg-custom-one {
+            background-color: rgb(94, 94, 201);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-md box">
+        <h1>Hello, world!</h1>
+    </div>
+
+    <div class="container-md mt-5 p-4 text-center" style="background-color: red;">
+        <div class="row box border align-content-center gx-1" style="background-color: greenyellow;">
+            <div class="col border" style="background-color: aqua;">
+                Colomn
+            </div>
+            <div class="col border" style="background-color: aqua;">
+                Colomn
+            </div>
+            <div class="col border" style="background-color: aqua;">
+                Colomn
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-primary p-5 mt-5">
+        <div class="row bg-secondary p-5">
+            <div class="col bg-warning p-5">
+                1
+            </div>
+
+            <div class="col bg-custom-one text-white p-5">
+                2
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center bg-custom-one" style="height: 500px;">
+        <div class="row h-100">
+          <div class="col align-self-start bg-warning text-white h-25">
+            One of three columns
+          </div>
+          <div class="col align-self-center bg-warning text-white h-25 align-content-center">
+            One of three columns
+          </div>
+          <div class="col align-self-end bg-warning text-white h-25 align-content-center">
+            One of three columns
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container text-center text-white mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-4 col-lg-3 border bg-primary" style="height: 300px;">column</div>
+            <div class="col-12 col-sm-4 col-lg-3 border bg-primary" style="height: 300px;">column</div>
+
+            <div class="col-12 col-sm-4 col-lg-3 border bg-primary" style="height: 300px;">column</div>
+            <div class="col-12 col-sm-4 col-lg-3 border bg-primary" style="height: 300px;">column</div>
+        </div>
+        <div class="row">
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+            <div class="col-4 border bg-secondary" style="height: 100px;"></div>
+        </div>
+      </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

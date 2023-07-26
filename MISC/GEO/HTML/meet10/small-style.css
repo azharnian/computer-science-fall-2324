@@ -1,0 +1,26 @@
+@media screen and (max-width: 576px) {
+    nav {
+        display: none;
+    }
+
+    header {
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    header div.login-btn {
+        display: none;
+    }
+
+    header span.burger-btn {
+        display: inline-block;
+    }
+
+    section.hero {
+        height: 400px;
+    }
+
+    section.info {
+        grid-template-columns: 1fr;
+    }
+}

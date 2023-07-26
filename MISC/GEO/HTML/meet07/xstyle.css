@@ -1,0 +1,112 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    min-height: 100vh;
+    background-color: #192f59;
+}
+
+header {
+    width: 100%;
+    height: auto;
+}
+
+header nav {
+    width: 100%;
+    height: auto;
+}
+
+header nav.top {
+    height: 61.5px;
+}
+
+header nav.bottom {
+    height: 91.2px;
+    background-color: white;
+}
+
+header nav div.content {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+header nav.top div.content {
+    /* background-color: salmon; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav.top div.content div.language-flags span {
+    margin-right: 20px;
+}
+
+header nav.top div.content .link-visit {
+    width: 150px;
+    height: 100%;
+    background-color: #3DB266;
+    text-align: center;
+}
+
+header nav.top div.content .link-visit a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: white;
+    line-height: 61.5px;
+}
+
+header nav.bottom div.content{
+    /* background-color: yellowgreen; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav.bottom div.content img {
+    width: 223px;
+}
+
+header nav.bottom div.content ul.nav {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    /* background-color: aqua; */
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav.bottom div.content ul.nav li {
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+header nav.bottom div.content ul.nav li a {
+    height: 100%;
+    text-decoration: none;
+    font-size: 10pt;
+    letter-spacing: .5pt;
+    color: #192f59;
+}
+
+header nav.bottom div.content ul.nav li a:hover {
+    height: 100%;
+    text-decoration: none;
+    font-size: 10pt;
+    letter-spacing: .5pt;
+    color: #3DB266;
+    border-bottom: 3px #3DB266 solid;
+}

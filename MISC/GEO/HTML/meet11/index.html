@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Bootstrap</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .text-red {
+            color: rgb(160, 17, 17);
+        }
+
+        .h-90 {
+            height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello, bootstrap 5!</h1>
+    </div>
+
+    <div class="container bg-success" style="height: 100px;">
+        <p class="display-1 text-center">My Bad</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-white">One</span>
+            </div>
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-white">Two</span>
+            </div>
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-red">Three</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 bg-danger" style="height: 300px;">
+        <div class="row h-100 w-100 align-items-center mx-auto">
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-white">One</span>
+            </div>
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-white">Two</span>
+            </div>
+            <div class="col bg-secondary text-center border">
+                <span class="display-2 text-red">Three</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center mt-5 bg-primary" style="height: 300px;">
+        <div class="row h-100">
+          <div class="col bg-danger align-self-start h-25">
+            One of three columns
+          </div>
+          <div class="col bg-secondary align-self-center h-25">
+            One of three columns
+          </div>
+          <div class="col bg-success align-self-end h-25">
+            One of three columns
+          </div>
+        </div>
+      </div>
+
+    
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+            <div class="col-xl-1 col-md-2 col-sm-4 bg-secondary border" style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-xl-4 col-md-6 bg-primary border" style="height: 100px;"></div>
+            <div class="col-xl-8 col-md-6 bg-secondary border" style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <div class="container d-flex bg-secondary justify-content-center align-items-center mt-5" style="height: 400px;">
+        <p class="lead">Welcome to mobile legend!</p>
+    </div>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

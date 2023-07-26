@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My First HTML Resume</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+			font-family: 'Lato', sans-serif;
+            /* font-family: Arial, Helvetica, sans-serif; */
+        }
+
+		header {
+			width: 100%;
+			height: 300px;
+			text-align: center;
+			/* background-color: aqua; */
+			padding: 20px;
+			/* border: 1px black solid; */
+			box-sizing: border-box;
+		}
+
+        header img {
+            width: 100px;
+            height: auto;
+        }
+
+		section.content {
+			width: 60%;
+			height: auto;
+			box-sizing: border-box;
+			margin: 20px auto;
+			padding: 10px;
+			/* background-color: aquamarine; */
+		}
+
+		p.category-label {
+			margin-bottom: 30px;
+			font-size: 20pt;
+			letter-spacing: 1.5pt;
+			text-transform: capitalize;
+			text-decoration: underline;
+		}
+
+		section.content  ul {
+			list-style: none;
+		}
+
+		div.indented {
+			margin-left: 50px;
+		}
+
+		nav ul {
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			padding: 10px 0;
+			margin-top: 30px;
+			text-align: center;
+			/* background-color: aquamarine; */
+		}
+
+		nav ul li {
+			display: inline;
+			margin: 0 50px;
+			letter-spacing: 1pt;
+			font-size: 16pt;
+			font-weight: bold;
+		}
+
+		nav ul li a {
+			text-decoration: none;
+			color: gray;
+		}
+
+		nav ul li a:hover {
+			color: black;
+		}
+
+		@media screen and (max-width:600px) {
+
+			header {
+				height: auto;
+				margin-bottom: 100px;
+			}
+
+			nav ul li {
+				display: block;
+				margin: 10px 0;
+			}
+		}
+
+    </style>
+</head>
+<body>
+    <header>
+		<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/640px-Patrick_Star.svg.png" alt="patrick">
+		<h1>Jane Doe</h1>
+		<p class="contactinfo">
+			1234 Main Street, Sometown, CA 93829<br>
+			tel: 555-555-1212, email:jane@doe.com
+		</p>
+		<nav>
+			<ul>
+				<li><a href="#">🏠 Home</a></li>
+				<li><a href="#">👨🏻‍💻 About</a></li>
+				<li><a href="#">🍔 Project</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="content">
+		<p class="category-label">
+			summary of qualifications
+		</p>
+		<!-- unordered list -->
+		<ul>
+			<li>
+				Highly skilled and dedicated ...
+			</li>
+			<li>
+				Provide comprehensive direction ....
+			</li>
+			<li>
+				Computer proficient in ...
+			</li>
+		</ul>
+	</section>
+	<section class="content">
+		<p class="category-label">
+			profesional experience
+		</p>
+		<div class="indented">
+			<p>
+				<strong>
+					Operation Manager, Super Awesome Company
+				</strong>
+			</p>
+			<ul>
+				<li>
+					Direct All...
+				</li>
+				<li>
+					Coordinate work ...
+				</li>
+				<li>
+					Generally in charge of everything
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+</html>

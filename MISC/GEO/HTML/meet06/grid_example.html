@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Example</title>
+    <style>
+        * {
+			margin: 0;
+			padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+		}
+
+		header {
+			width: 100%;
+            height: 80px;
+            display: grid;
+            grid-template-columns: 50px auto;
+			background-color: #7152f4;
+            align-items: center;
+            padding: 10px;
+		}
+        
+        header img {
+            max-height: 60px;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+        }
+
+		footer {
+			width: 100%;
+            height: 30px;
+            padding-top: 10px;
+			background-color: #cccccc;
+			text-align: center;
+			font-style: italic;
+		}
+
+		#main {
+			width: 100%;
+            min-height: calc(100vh - 80px - 30px);
+			display: grid;
+			grid-template-columns: 200px auto 125px;
+			grid-template-areas: "secondary_content main_content tertiary_content" ;
+		}
+
+		#main-content {
+			grid-area: main_content;
+            padding: 10px;
+		}
+
+		#secondary-content {
+			grid-area: secondary_content;
+			width: 200px;
+			background-color: #52f471;
+		}
+
+		#tertiary-content {
+			grid-area: tertiary_content;
+			width: 125px;
+			background-color: #f452d5;
+            padding: 10px;
+		}
+
+		#secondary-content ul {
+			list-style-type: none;
+			margin: 12px 0px 0px 12px;
+			padding: 0px;
+		}
+
+		#secondary-content li a:link, #secondary-content li a:visited {
+			display: block;
+            font-size: 12pt;
+			font-weight: bold;
+			padding: 3px 0px 3px 3px;
+			color: black;
+			text-decoration: none;
+		}
+
+		#secondary-content li a:hover, #secondary-content li a:active {
+            display: block;
+			font-size: 12pt;
+			font-weight: bold;
+			padding: 3px 0px 3px 3px;
+			color: white;
+			text-decoration: none;
+		}
+    </style>
+</head>
+<body>
+    <header>
+		<img src="#" alt="Ignatius" width="40px">
+		<h1>Welcome to IGS</h1>
+	</header>
+	<section id="main">
+		<article id="main-content">
+		<!-- CONTENT -->
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		</article>
+		<aside id="secondary-content">
+		<!-- LEFT SIDE -->
+			<ul>
+				<li>
+					<a href="#">
+						Mission
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						History
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						Team
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						Contact Us
+					</a>
+				</li>
+			</ul>
+
+		</aside>
+		<aside id="tertiary-content">
+		<!-- RIGHT SIDE -->
+			<p>
+				<strong>
+					SPECIAL PROMO
+				</strong>
+			</p>
+			<p>
+				Entrance Test Scholarship up to 100% 36 Months.
+			</p>
+		</aside>
+	</section>
+	<footer>
+		&copy; Copyright information usually goes here in the footer.
+	</footer>
+</body>
+</html>

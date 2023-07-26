@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        * {
+            margin: 10px;
+            padding: 0;
+        }
+
+        a, p, span, div {
+            background-color: salmon;
+        }
+
+        a, p {
+            width: 50px;
+            height: 50px;
+        }
+
+        a.a-block-element {
+            display: inline-block;
+        }
+
+        p {
+            overflow: hidden;
+        }
+
+        span.box-two {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <a class="a-block-element" href="#">Login Here</a>
+    <a href="#">B</a>
+    <a href="#">C</a>
+    <a href="#">D</a>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, consequatur?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, iste.</p>
+
+    <span class="box-one">1</span>
+    <span class="box-two">2</span>
+
+    <div class="box-three">3</div>
+    <div class="box-four">4</div>
+</body>
+</html>

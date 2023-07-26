@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Document</title>
+    <style>
+
+        /* DEFAULT FOR PC / LAPTOPS */
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: salmon;
+        }
+        
+        nav {
+            background-color: goldenrod;
+            width: 100%;
+            height: 80px;
+        }
+
+        div.hero {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: url("https://www.sussexexpress.co.uk/webimg/b25lY21zOjk1Mzk3Mjg0LThlNDctNDNlZi05M2I0LWI5NjFjN2U1MGJmYTo1NTcyOTdkMi02ZTExLTQ0YmMtOTA4MS1kZTNmNTc0MGMxNjc=.jpg?crop=3:2,smart&width=800&auto=webp&quality=75") no-repeat center center / cover;
+        }
+
+
+        /* FOR IPAD and TAB */
+        @media screen and (max-width: 992px) {
+            body {
+                background-color: aqua;
+            }
+        }
+
+         /* FOR MOBILE PHONE */
+        @media screen and (max-width: 768px) {
+            body {
+                background-color: orangered;
+            }
+
+            nav {
+                height: 40px;
+            }
+
+            div.hero {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <div class="hero">
+
+    </div>
+</body>
+</html>

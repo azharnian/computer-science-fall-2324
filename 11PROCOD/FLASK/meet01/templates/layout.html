@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{title}} - PT. Mencari Cinta Sejati</title>
+    {% else %}
+    <title>PT. Mencari Cinta Sejati</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="">
+        </div>
+        <nav>
+            <span>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+            </span>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <span>PT Mencari Cinta Sejati &copy; 2003</span>
+    </footer>
+</body>
+</html>

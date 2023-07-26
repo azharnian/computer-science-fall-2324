@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px black solid;
+        }
+
+        .circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            background-color: yellowgreen;
+            top: 0px;
+            left: 0px;
+            animation: moveTheCircle 4s infinite;
+            animation-fill-mode: both;
+            animation-timing-function: ease;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            box-sizing: border-box;
+            border-radius: 30px;
+            animation: moveOne 3s;
+            /* animation-iteration-count: infinite; */
+            animation-timing-function: ease;
+            animation-fill-mode: backwards;
+            animation-delay: 1s;
+            /* animation: animationOne 5s infinite;
+            animation-direction: alternate; */
+        }
+
+        @keyframes moveOne {
+            from {
+                background-color: red;
+                left: 0px;
+            }
+
+            to {
+                background-color: yellow;
+                left: 500px;
+            }
+        }
+
+        @keyframes moveTheCircle {
+            0% {
+                background-color: red;
+                top: 0;
+                left: 0;
+            }
+
+            25% {
+                background-color: green;
+                top: 0;
+                left: calc(100% - 200px);
+            }
+
+            50% {
+                background-color: blue;
+                top: calc(100% - 200px);
+                left: calc(100% - 200px);
+            }
+
+            75% {
+                background-color: violet;
+                top: calc(100% - 200px);
+                left: 0px;
+            }
+
+            100% {
+                background-color: salmon;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        @keyframes animationOne {
+            from {
+                background-color: red;
+                transform: scale(1);
+            }
+
+            to {
+                background-color: yellow;
+                transform: scale(3);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="circle"></div>
+    </div>
+</body>
+</html>
