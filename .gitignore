@@ -1,6 +1,7 @@
 
 .vscode
 .git
+*.mp4
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
