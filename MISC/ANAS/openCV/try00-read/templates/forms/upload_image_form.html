@@ -1,0 +1,43 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+        {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="POST" enctype="multipart/form-data" class="d-flex flex-column justify-content-center">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.image.label(for="formFile", class="form-control-label") }}
+        {% if form.image.errors %}
+            {{ form.image(type="file", id="formFile", class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.image.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.image(type="file", id="formFile", class="form-control") }}
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.message.label(for="formFile", class="form-label") }}
+        {% if form.message.errors %}
+            {{ form.message(type="text", class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.text.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.message(type="text", class="form-control") }}
+        {% endif %}
+        <div id="messagelHelp" class="form-text">We'll never share your message with anyone else.</div>
+    </div>
+
+    {{ form.submit(class="btn btn-primary") }}
+</form>

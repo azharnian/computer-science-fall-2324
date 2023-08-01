@@ -1,6 +1,7 @@
 
 .vscode
 .git
+ocvEnv/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
