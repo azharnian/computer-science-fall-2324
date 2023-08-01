@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkest Dungeon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balthazar&family=Germania+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Balthazar', serif;
+        }
+
+        nav div.container-fluid {
+            position: relative;
+        }
+
+        nav div.container-fluid img {
+            position: absolute;
+            left: 50px;
+            top: 5px;
+        }
+
+        img.torch {
+            position: relative;
+            z-index: 999;
+            height: 100px;
+            background-color: #212529;
+        }
+
+        img.torch:hover {
+            background-color: rgb(153, 21, 21);
+        }
+
+        i.bi {
+            font-size: 1.5rem; 
+            color: gray;
+        }
+
+        ul.store {
+            font-family: 'Germania One', cursive;
+            text-transform: uppercase;
+            font-size: 15pt;
+            font-weight: bold;
+        }
+
+        .hero {
+            position: relative;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: inherit;
+            /* background-color: salmon; */
+
+        }
+
+        .hero-video video {
+            width: 100%;
+        }
+
+        .hero > div.container-fluid {
+            height: calc(100vh - 50px);
+            /* background-color: salmon; */
+        }
+
+        .row {
+            position: relative;
+            padding: 0 8%;
+        }
+
+        .col-md-5 {
+            height: calc(100vh - 50px);
+            /* background-color: blueviolet; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .col-md-5 img {
+            width: 400px;
+            height: auto;
+        }
+
+        .col-md-5 p {
+            width: 300px;
+            text-align: center;
+            font-size: 18px;
+            color: gray;
+        }
+        
+        .col-md-5 p:hover {
+            width: 300px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid justify-content-end">
+            <img src="https://img2.storyblok.com/fit-in/1536x1536/filters:format(webp)/f/127947/130x196/d3e67f6982/torch.png" alt="torch" class="navbar-brand torch">
+
+            <div class="navbar navbar-dark bg-dark">
+    
+                <ul class="navbar-nav menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Darkest Dungeon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Darkest Dungeon 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+    
+                <ul class="navbar-nav socials ms-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-discord" ></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-facebook" ></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+    
+                <ul class="navbar-nav store ms-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link me-2" style="background-color: rgb(104, 14, 14);">
+                            store
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" style="background-color: rgb(217, 22, 22);">
+                            buy now
+                        </a>
+                    </li>
+                </ul>
+    
+            </div>
+    
+        </div>
+
+        
+    </nav>
+
+    <section class="hero">
+        <div class="container-fluid">
+            <div class="hero-video">
+                <video autoplay muted loop src="clip.mp4"></video>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="https://img2.storyblok.com/fit-in/1536x1536/filters:format(webp)/f/127947/1845x1175/6d3eb0d2d7/darkest-dungeon-logo.png" alt="" class="mb-4">
+                    <p>Enter the world of Darkest Dungeon. The original adventure</p>
+                    <a href="" class="btn btn-danger">enter</a>
+                </div>
+                <div class="col-md-5 offset-md-2">
+                    <img src="https://img2.storyblok.com/fit-in/1536x1536/filters:format(webp)/f/127947/427x231/ea387480c8/dd2-logo.png" alt="" class="mb-4">
+                    <p>Explore the second epic of Darkest Dungeon</p>
+                    <a href="" class="btn btn-primary">enter</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
