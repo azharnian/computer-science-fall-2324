@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Search</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background-color: aqua; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section.content {
+            /* background-color: yellowgreen; */
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        h1 {
+            /* background-color: whitesmoke; */
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            /* background-color: pink; */
+        }
+
+        form {
+            background-color: white;
+            text-align: center;
+            width: 400px;
+            height: 36px;
+            line-height: 36px;
+            margin: 0 auto;
+            border: 1px solid lightblue;
+        }
+        
+        form .search-entry {
+            width: 299px;
+            height: 25px;
+            padding: 0px 10px;
+            border: none;
+            background-color: white;
+        }
+
+        form .search-entry:focus {
+            outline: none;
+            background-color: white;
+        }
+
+        form .search-lang {
+            width: 50px;
+            height: 30px;
+            border: none;
+        }
+
+        form .search-btn {
+            width: 40px;
+            height: 35px;
+            border: none;
+            background-color: lightblue;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header></header>
+    <section class="content">
+            <h1>Wikipedia</h1>
+            <p>The free encyclopedia</p>
+            <img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" alt="Wikipedia Logo">
+            <form action="https://en.wikipedia.org/wiki/">
+                <input class="search-entry" type="text" name="" id="">
+                <select class="search-lang" id="lang">
+                    <option value="en">en</option>
+                    <option value="id">id</option>
+                  </select>
+                <input class="search-btn" type="submit" value="🔍">
+            </form>
+    </section>
+    <footer></footer>
+</body>
+</html>

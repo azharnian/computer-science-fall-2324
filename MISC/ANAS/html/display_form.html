@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: calc(100vh - 200px);
+            /* background-color: yellowgreen; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section.content {
+            margin-top: 200px;
+            /* background-color: salmon; */
+            height: 200px;
+        }
+
+        h1 {
+            font-size: 50pt;
+            text-align: center;
+            text-transform: capitalize;
+        } 
+
+        form {
+            /* background-color: aliceblue; */
+            width: 600px;
+            margin: 10px auto;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        div.entry-group {
+            display: inline-block;
+            background-color: white;
+            height: 56px;
+            line-height: 56px;
+            border: 2px gray solid;
+            border-radius: 28px;
+        }
+
+        .search-icon {
+            display: inline-block;
+            font-size: 30px;
+            background-color: white;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            border-radius: 25px;
+        }
+
+        input.search-entry {
+            width: 480px;
+            height: 50px;
+            border-radius: 25px;
+            border: none;
+            font-size: 30px;
+            padding: 0 10px;
+        }
+
+        input.search-entry:focus {
+            outline: none;
+        }
+
+        input.search-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            border: none;
+            background-color: pink;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <section class="content">
+        <div class="logo">
+            <h1>
+                <span style="color: lightseagreen;">g</span><span style="color: magenta;">o</span>ogle
+            </h1>
+        </div>
+        <form action="">
+            <div class="entry-group">
+                <span class="search-icon">🔎</span>
+                <input class="search-entry" type="text" name="" id="" placeholder="Find your idea" autofocus autocomplete="off">
+            </div>
+           
+            <input class="search-btn" type="submit" value="❤️">
+        </form>
+    </section>
+
+</body>
+</html>
