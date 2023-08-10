@@ -1,0 +1,636 @@
+(function () {
+  var scheme = (("https:" == document.location.protocol) ? "https" : "http");
+  var adnxs_domain = 'secure.adnxs.com';
+  var aol_domain = 'secure.leadback.advertising.com';
+  window.adroll_seg_eid = "WN5YASSXX5G5RLKEDLUSZ7";
+  window.adroll_sendrolling_cross_device = true;
+  window.adroll_form_fields = {};
+  window.adroll_third_party_forms = {};
+  if (typeof __adroll._form_attach != 'undefined') {
+    __adroll._form_attach();
+  }
+  if (typeof __adroll._form_tp_attach != 'undefined') {
+    __adroll._form_tp_attach();
+  }
+  window.adroll_rule_type = "p";
+  var rule = ["*", "*"];
+  if (scheme=='http') { adnxs_domain = 'ib.adnxs.com'; aol_domain = 'leadback.advertising.com';}
+  var el = document.createElement("div");
+  el.style["width"] = "1px";
+  el.style["height"] = "1px";
+  el.style["display"] = "inline";
+  el.style["position"] = "absolute";
+  var content = '';
+  var rollcrawl_opts = {
+      "regexp": null,
+      "blacklist_regexp": null,
+      "blocklist_regexp": null,
+      "regexp_group": null,
+      "product_group_regexp": null,
+      "product_group_group": null
+  };
+
+  if (__adroll.consent_allowed(__adroll.consent_networks.facebook)) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','//connect.facebook.net/en_US/fbevents.js');
+  }
+
+  try {
+      try {
+          
+(function() {
+var rtb = document.createElement("div");
+rtb.style["width"] = "1px";
+rtb.style["height"] = "1px";
+rtb.style["display"] = "inline";
+rtb.style["position"] = "absolute";
+rtb.innerHTML = ["/cm/b/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/g/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/index/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/l/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/n/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/o/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/outbrain/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/pubmatic/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/r/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/taboola/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/triplelift/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR","/cm/x/out?advertisable=RJIMEDVXWJD5HISSL6ZSCR"].reduce(function (acc, cmURL) {
+    return acc + '<img height="1" width="1" style="border-style:none;" alt="" src="' + __adroll._srv(cmURL) + '"/>';
+}, '');
+__adroll._head().appendChild(rtb);
+})();
+
+      } catch(e) {}
+      try {
+          
+(function(){
+    var scr = document.createElement("script");
+    scr.type = "text/javascript";
+    scr.src = "//s.adroll.com/j/sendrolling.js";
+    ((document.getElementsByTagName("head") || [null])[0] || document.getElementsByTagName("script")[0].parentNode).appendChild(scr);
+}());
+
+      } catch(e) {}
+      try {
+          // Helper functions
+
+function ajaxGetJson(url, callback) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState === 4) {
+            if (xhttp.status === 200) {
+                try {
+                    callback(JSON.parse(xhttp.responseText));
+                } catch (e) {
+                    console.warn('AdRoll Pixel: Error in JSON parse callback: ' + e);
+                }
+            } else {
+                console.warn('AdRoll Pixel: Request to ' + url + ' failed: "' + xhttp.statusText + '"');
+            }
+        }
+    };
+    xhttp.open('GET', url, true);
+    xhttp.send();
+}
+
+function getProductByHandle(productHandle, callback) {
+    var url = '/products/' + productHandle + '.js';
+    ajaxGetJson(url, callback);
+}
+
+function getCart(callback) {
+    var url = '/cart.js';
+    ajaxGetJson(url, callback);
+}
+
+function getProductFromCart(cart, variantId) {
+    for (var i = 0; i < cart.items.length; i++) {
+        if (String(cart.items[i].variant_id) === String(variantId)) {
+            return cart.items[i];
+        }
+    }
+    return null;
+}
+
+function getAddToCartTrackQueue() {
+    if (typeof window.localStorage === 'undefined') {
+        return [];
+    }
+    var data = window.localStorage.getItem('adroll-shopify-add-to-cart-track-queue');
+    if (data === null) {
+        return [];
+    }
+    try {
+        return JSON.parse(data);
+    } catch(e) {
+        return [];
+    }
+}
+
+function setAddToCartTrackQueue(array) {
+    if (typeof window.localStorage !== 'undefined') {
+        window.localStorage.setItem('adroll-shopify-add-to-cart-track-queue', JSON.stringify(array));
+    }
+}
+
+function clearAddToCartTrackQueue() {
+    setAddToCartTrackQueue([]);
+}
+
+function formatCentPrice(price) {
+    price = parseInt(price, 10);
+    price = isNaN(price) ? '' : (price / 100).toFixed(2);
+    return price;
+}
+
+function getProductHandleFromCurrentUrl() {
+    var matches = window.location.href.match(/.*(?:\/products\/|\/product\/)([^?#/]+)/);
+    return matches ? matches[1] : null;
+}
+
+function parseQuery(query) {
+        var Params = new Object();
+        if (!query) return Params;
+        var Pairs = query.split(/[;&]/);
+        for (var i = 0; i < Pairs.length; i++) {
+            var KeyVal = Pairs[i].split('=');
+            if (!KeyVal || KeyVal.length != 2) continue;
+            var key = decodeURIComponent(KeyVal[0]);
+            var val = decodeURIComponent(KeyVal[1]);
+            key = key.replace(/\?/g, '');
+            val = val.replace(/\+/g, ' ');
+            Params[key] = val;
+        }
+        return Params;
+    }
+
+function getVariantFromCurrentUrl() {
+    var query = parseQuery(window.location.search);
+    return parseInt(query.variant);
+}
+
+function getCurrentPage() {
+    var pathname = window.location.pathname;
+    var href = window.location.href;
+
+    if (pathname === '/') {
+        return 'home_page';
+    }
+    if ((href.indexOf('/products/') !== -1) || (href.indexOf('/product/') !== -1)) {
+        return 'product_page';
+    }
+    if (pathname.indexOf('/cart') !== -1){
+        return 'cart_page';
+    }
+    if (typeof(Shopify) !== 'undefined' && Shopify.Checkout !== undefined && Shopify.Checkout.page !== undefined && (Shopify.Checkout.page === 'thank_you' || Shopify.Checkout.page === 'checkout_one_thank_you')) {
+        return 'conversion_page';
+    }
+    if (typeof(BOLD) !== 'undefined' && BOLD.order !== undefined && BOLD.order.id !== undefined) {
+        return 'bold_cashier_conversion_page';
+    }
+}
+
+// Payload functions
+function getProductViewPayload(product) {
+    var payload = {products: []};
+    var variant = getVariantFromCurrentUrl();
+    if (!variant && product.variants)
+    {
+        //If no variant selected get the first in-stock one
+        var instock = product.variants.filter(function(x){
+            return parseInt(x.inventory_quantity) > 0;
+        });
+        if (instock.length > 0)
+        {
+            variant = instock[0].id;
+        } else {
+            variant = product.variants[0].id;
+        }
+    }
+
+    var identifier;
+    if (variant)
+    {
+        identifier = String(product.id)+'-'+String(variant);
+    } else {
+        identifier = String(product.id);
+    }
+
+    payload.products.push({
+        product_id: identifier,
+        platform_prod_id:product.id,
+        platform_variant_id:variant,
+        category: product.type,
+        price: formatCentPrice(product.price)
+    });
+    return payload;
+}
+
+function getCartViewPayload(cart) {
+    var payload = {products: []};
+    for (var i = 0; i < cart.items.length; i++) {
+        var item = cart.items[i];
+        payload.products.push({
+            product_id: String(item.product_id)+'-'+String(item.variant_id),
+            platform_prod_id:item.product_id,
+            platform_variant_id:item.variant_id,
+            category: item.type,
+            price: formatCentPrice(item.price),
+            quantity: String(item.quantity)
+        });
+    }
+    return payload;
+}
+
+function getPurchasePayload() {
+    var payload = {
+        currency: Shopify.checkout.presentment_currency || 'USD',
+        order_id: String(Shopify.checkout.order_id),
+        conversion_value: Shopify.checkout.total_price, // Total_price attribute in checkout object is already formatted
+        products: []
+    };
+    for (var i = 0; i < Shopify.checkout.line_items.length; i++) {
+        var item = Shopify.checkout.line_items[i];
+        payload.products.push({
+            product_id: String(item.product_id)+'-'+String(item.variant_id),
+            platform_prod_id:item.product_id,
+            platform_variant_id:item.variant_id,
+            price: item.price, // Price attribute in checkout line items is already formatted
+            quantity: String(item.quantity)
+        });
+    }
+    return payload;
+}
+
+function getBoldCashierPurchasePayload() {
+    var payload = {
+        order_id: String(BOLD.order.id),
+        conversion_value: formatCentPrice(BOLD.order.total),
+        products: []
+    };
+    for (var i = 0; i < BOLD.order.line_items.length; i++) {
+        var item = BOLD.order.line_items[i];
+        payload.products.push({
+            product_id: String(item.platform_product_id)+'-'+String(item.platform_variant_id),
+            platform_prod_id:item.platform_product_id,
+            platform_variant_id:item.platform_variant_id,
+            price: formatCentPrice(item.price),
+            quantity: String(item.quantity)
+        });
+    }
+    return payload;
+}
+
+// Tracking functions
+
+function trackAjaxAddToCart(addToCartFormData, ajaxResponseObject) {
+    // Workaround for the route insurance plugin that many stores seem to use. It fires
+    // an add to cart event with the full array of products in the ajaxResponseObject, not
+    // just the single product. Extract the product and use it.
+    if(!!ajaxResponseObject && !!ajaxResponseObject.items && Array.isArray(ajaxResponseObject.items) && ajaxResponseObject.items.length > 0) {
+        ajaxResponseObject = ajaxResponseObject.items[0];
+    }
+
+    // Sometimes, addToCartFormData is a FormData object with a quantity field.
+    // This is the quantity that was ADDED in the request, not the total quantity now in the cart.
+    var qtyAdded = addToCartFormData.get && addToCartFormData.get('quantity');
+    if(!qtyAdded) {
+        // Other times, addToCartFormData is a string.
+        // Receives as parameter the ajax payload with variant_id and optional quantity and
+        // the ajax response which is an object with the item details in the cart.
+        qtyAdded = /quantity["']?\s*[=:]\s*["']?([0-9]*)["']?/.exec(addToCartFormData);
+        qtyAdded = qtyAdded ? qtyAdded[1] : 1;
+    }
+
+    var addToCartPayload = {
+        products: [{
+            product_id: String(ajaxResponseObject.product_id)+'-'+String(ajaxResponseObject.variant_id),
+            platform_prod_id:ajaxResponseObject.product_id,
+            platform_variant_id:ajaxResponseObject.variant_id,
+            quantity: String(qtyAdded),
+            price: formatCentPrice(ajaxResponseObject.price),
+            category: ajaxResponseObject.product_type
+        }]
+    };
+
+    getCart(function(cart) {
+        adroll.track('pageView', {
+            segment_name: 'shopify_added_product_to_cart',
+            cart_value: formatCentPrice(cart.total_price)
+        });
+    });
+    adroll.track('addToCart', addToCartPayload);
+
+    var addToCartTrackQueue = getAddToCartTrackQueue();
+    if (addToCartTrackQueue.length > 0) {
+        var newList = [];
+        for (var i = 0;  i < addToCartTrackQueue.length; i++) {
+            if (addToCartTrackQueue[i].variant_id != ajaxResponseObject.variant_id || addToCartTrackQueue[i].quantity != qtyAdded) {
+                newList.push(addToCartTrackQueue[i]);
+            }
+        }
+        setAddToCartTrackQueue(newList);
+    }
+}
+
+function setupAjaxListeners() {
+    // Set up listeners to fire the pixel if/when the user peforms specific actions that trigger ajax requests.
+    // Since we cant create globals we test for the XMLHttpRequest overwrite
+    if (typeof XMLHttpRequest.prototype.adrollOpen === 'undefined') {
+        // We mock fetch() in order to determine if we should mock then() as well
+        var adrollFetch = fetch;
+        fetch = function() {
+            var url = arguments[0];
+            var body = '';
+            // If the url comes as a URL Object, extract the 'pathname' of it, and save it as the new url
+            if (typeof arguments[0] === "object" && arguments[0]["pathname"]) {
+                url = arguments[0]["pathname"];
+            }
+            if ((arguments.length > 1) && (typeof arguments[1] !== 'undefined') && (typeof arguments[1].body !== 'undefined'))
+            {
+                body = arguments[1].body;
+            }
+            var promise = adrollFetch.apply(this,arguments);
+            if (url && typeof url === "string" && url.indexOf('cart/add') !== -1) {
+                //If its a product being added to cart we add a function to track it
+                promise = promise.then(function (response) {
+                    if (response.ok) {
+                        response.clone().json().then(function(resp) {  trackAjaxAddToCart(body, resp); });
+                    }
+                    return response;
+                });
+            }
+            return promise;
+        };
+    }
+    if (typeof XMLHttpRequest.prototype.adrollOpen === 'undefined') {
+        // We mock the XMLHttpRequest open method in order to determine if we should mock the send method
+        XMLHttpRequest.prototype.adrollOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function () {
+            var url = arguments[1];
+            // If the url comes as a URL Object, extract the 'pathname' of it, and save it as the new url
+            if (typeof arguments[1] === "object" && arguments[1]["pathname"]) {
+                url = arguments[1]["pathname"];
+            }
+            if (url && typeof url === "string" && url.indexOf('cart/add') !== -1) {
+                // We mock the instance's send method if the request is to the "add to the cart" url.
+                this.adrollSend = this.send;
+                this.send = function (value) {
+                    try {
+                        if (value) {
+                            var self = this; // The xhttp request object
+
+                            var trackOnSuccess = function () {
+                                if (self.readyState === 4 && self.status === 200) {
+                                    trackAjaxAddToCart(value, JSON.parse(self.responseText));
+                                }
+                            };
+
+                            if (typeof self.addEventListener !== 'undefined') {
+                                self.addEventListener('readystatechange', trackOnSuccess);
+                            } else {
+                                if (typeof self.onreadystatechange !== 'undefined' && self.onreadystatechange !== null) {
+                                    // If the xhttp object already has an onreadystatechange callback, make sure we preserve it.
+                                    self.adrollOnreadystatechange = self.onreadystatechange;
+                                    self.onreadystatechange = function () {
+                                        self.adrollOnreadystatechange();
+                                        trackOnSuccess();
+                                    };
+                                } else {
+                                  // If there is no onreadystatechange callback, we can safely set it.
+                                  self.onreadystatechange = trackOnSuccess;
+                                }
+                            }
+                        }
+                    } catch(e) {
+                        // if something goes wrong tracking the addToCart,
+                        // we just ignore it and prevent the website from breaking.
+                        console.log(e);
+                    }
+                    this.adrollSend(value);
+                };
+            }
+            this.adrollOpen.apply(this, arguments);
+        };
+    }
+}
+
+function setupFormSubmitListeners() {
+    // For form submits, we don't have a way to get the item details and track the add to cart properly.
+    // We manage a list in localStorage for products we need to track as "added to cart".
+    // If we identify an add to cart submit, we just add the variand id and quantity into the list.
+    // On page loads, we check if this list is empty or not and track it correctly.
+    var addToCartForms = document.querySelectorAll('form[action*="cart/add"]');
+    for (var i = 0; i < addToCartForms.length; i++) {
+        addToCartForms[i].addEventListener('submit', function () {
+            var currentList = getAddToCartTrackQueue();
+            var variantId = this.querySelector('[name=id]');
+
+            if (!variantId) {
+                return;
+            }
+
+            variantId = variantId.value;
+
+            // First try - find a quantity input in the current form. This happens sometimes.
+            var quantity = this.querySelector('input[name=quantity]');
+            if(!quantity) {
+                // Second try - find a quantity input in a DIFFERENT form. This also happens sometimes
+                // depending on the store setup.
+                quantity = document.querySelector('input[name=quantity]');
+            }
+            quantity = String(quantity ? quantity.value : 1);
+            currentList.push({'variant_id': variantId, 'quantity': quantity});
+            setAddToCartTrackQueue(currentList);
+        });
+    }
+}
+
+function strToObj(name)
+{
+    var layers = name.split(".");
+    layers.unshift("window");
+    var object = window;
+    for (var j = 0;  j < layers.length; j++)
+    {
+        object = object[layers[j]];
+    }
+    return object;
+}
+
+function checkDefined(name)
+{
+    var layers = name.split(".");
+    layers.unshift("window");
+    for (var i = 1;  i < layers.length; i++) {
+        var current = layers.slice(0,i);
+        var tocheck = layers[i];
+        var object = window;
+        for (var j = 0;  j < current.length; j++)
+        {
+            object = object[current[j]];
+        }
+        if (!object.hasOwnProperty(tocheck))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+function adrollIdentifyIfPossible() {
+    var identity_payload = {};
+    var possible_email_vars = [
+        "adroll_email",
+        "Shopify.checkout.email",
+        "BOLD.order.customer.email"
+    ];
+    var possible_userid_vars = [
+        "adroll_user_id",
+        "Shopify.checkout.customer_id"
+    ];
+    var possible_accepts_marketing_vars = [
+        "adroll_accepts_marketing",
+        "Shopify.checkout.buyer_accepts_marketing"
+    ];
+    for (var i = 0;  i < possible_email_vars.length; i++) {
+        if (checkDefined(possible_email_vars[i])) {
+            identity_payload["email"] = strToObj(possible_email_vars[i]);
+            break;
+        }
+    }
+    for (var i = 0;  i < possible_userid_vars.length; i++) {
+        if (checkDefined(possible_userid_vars[i])) {
+            identity_payload["userId"] = strToObj(possible_userid_vars[i]);
+            break;
+        }
+    }
+    for (var i = 0;  i < possible_accepts_marketing_vars.length; i++) {
+        if (checkDefined(possible_accepts_marketing_vars[i])) {
+            identity_payload["accepts_marketing"] = strToObj(possible_accepts_marketing_vars[i]);
+            break;
+        }
+    }
+    if (identity_payload.hasOwnProperty("email"))
+    {
+        adroll.identify(identity_payload);
+    }
+    ajaxGetJson('/cart.json', function (data) {
+        if (!data || !data.token) return;
+        identity_payload["cart_token"] = data.token;
+        adroll.identify(identity_payload);
+    })
+}
+
+function handlePageLoadTracking() {
+    // runs adroll.identify if data is available
+    adrollIdentifyIfPossible();
+    // Check the current page, build the appropriate payload and fire the pixel.
+    switch(getCurrentPage()){
+        case 'home_page':
+            adroll.track('pageView');
+            adroll.track('homeView');
+            break;
+        case 'product_page':
+            adroll.track('pageView'); // ECOMM-607 to also apply any url segmentation rules
+            adroll.track('pageView', {segment_name: 'shopify_viewed_product'});
+            var productHandle = getProductHandleFromCurrentUrl();
+            getProductByHandle(productHandle, function(product) {
+                adroll.track('productView', getProductViewPayload(product));
+            });
+            break;
+        case 'cart_page':
+            adroll.track('pageView', {segment_name: 'shopify_viewed_cart'});
+            getCart(function(cart) {
+                adroll.track('cartView', getCartViewPayload(cart));
+            });
+            break;
+        case 'conversion_page':
+            adroll.setProperties({
+                currency: Shopify.checkout.presentment_currency || 'USD',
+                ORDER_ID: Shopify.checkout.order_id,
+                USER_ID: Shopify.checkout.customer_id,
+                checkout_token: Shopify.checkout.token
+            });
+            var purchasePayload = getPurchasePayload();
+            adroll.track('purchase', purchasePayload);
+            var pageViewPayload = JSON.parse(JSON.stringify(purchasePayload));
+            pageViewPayload.segment_name = 'shopify_responsive_checkout';
+            adroll.track('pageView', pageViewPayload);
+            break;
+        case 'bold_cashier_conversion_page':
+            var purchasePayload = getBoldCashierPurchasePayload();
+            adroll.track('purchase', purchasePayload);
+            var pageViewPayload = JSON.parse(JSON.stringify(purchasePayload));
+            pageViewPayload.segment_name = 'shopify_responsive_checkout';
+            adroll.track('pageView', pageViewPayload);
+            break;
+        default:
+            adroll.track('pageView');
+    }
+}
+
+function handleAddToCartQueueTracking() {
+    // Check localStorage for list of variants that were previously added to the cart, then get the corresponding
+    // product data and fire the pixel.
+    var addToCartTrackQueue = getAddToCartTrackQueue();
+    if (addToCartTrackQueue.length > 0) {
+        getCart(function(cart) {
+            var addToCartPayload = {products: []};
+            for (var i = 0;  i < addToCartTrackQueue.length; i++) {
+                var product = getProductFromCart(cart, addToCartTrackQueue[i].variant_id);
+                if (!product) {
+                    continue;
+                }
+                addToCartPayload.products.push({
+                    'product_id': String(product.product_id)+'-'+String(addToCartTrackQueue[i].variant_id),
+                    'platform_prod_id':product.product_id,
+                    'platform_variant_id':addToCartTrackQueue[i].variant_id,
+                    'quantity': addToCartTrackQueue[i].quantity,
+                    'price': formatCentPrice(product.price),
+                    'category': product.product_type
+                });
+            }
+            adroll.track('pageView', {
+                segment_name: 'shopify_added_product_to_cart',
+                cart_value: formatCentPrice(cart.total_price)
+            });
+            adroll.track('addToCart', addToCartPayload);
+            clearAddToCartTrackQueue();
+        });
+    }
+}
+
+function setupHrefChangeListener() {
+    var oldHref = window.location.href;
+    window.setInterval(function(){
+        var newHref = window.location.href;
+        if (newHref !== oldHref) {
+            // Treat href changes as page loads and check if we need to fire again.
+            handlePageLoadTracking();
+            oldHref = newHref;
+        }
+    }, 5000);
+}
+
+setupAjaxListeners();
+setupFormSubmitListeners();
+setupHrefChangeListener();
+handlePageLoadTracking();
+handleAddToCartQueueTracking();
+
+      } catch(e) {}
+  } catch(e) {}
+
+  __adroll.get_pid(rollcrawl_opts);
+
+  var r = Math.random()*10000000000000000;
+  content = content.replace(/\[ord\]/gi, r);
+  content = content.replace(/\[protocol\]/gi, scheme);
+  content = content.replace(/\[adnxs_domain\]/gi, adnxs_domain);
+  content = content.replace(/\[aol_domain\]/gi, aol_domain);
+  var adroll_tpc = __adroll._global('adroll_tpc');
+  if (adroll_tpc) {
+    var srv_parts = __adroll._srv().split('?');
+    var srv_host = srv_parts[0].substr(srv_parts[0].indexOf(':') + 1);
+    var srv_re = new RegExp(srv_host + '([^\?\"\'\>\#\S]+)\\?*', 'gi');
+    content = content.replace(srv_re, srv_host + '$1?' + srv_parts[1] + '&');
+  }
+  content = __adroll.replace_external_data(content);
+  el.innerHTML = content;
+  __adroll._head().appendChild(el);
+  if (typeof __adroll.set_pixel_cookie != 'undefined') {__adroll.set_pixel_cookie(adroll_adv_id, adroll_pix_id, "WN5YASSXX5G5RLKEDLUSZ7");}
+}());
