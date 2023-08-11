@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        div.container {
+            background-color: salmon;
+            padding: 5px;
+            width: 1000px;
+            margin: 0px auto; 
+        }
+
+        aside {
+            width: 200px;
+            height: 800px;
+        }
+
+        section.main {
+            float: left;
+            width: 500px;
+            height: 800px;
+            background-color: pink;
+        }
+
+        aside.left {
+            float: left;
+            background-color: aqua;
+        }
+
+        aside.right {
+            float: right;
+            background-color: greenyellow;
+        }
+
+        header nav {
+            height: 60px;
+            width: 1000px;
+            /* background-color: bisque; */
+            margin: 0px auto;
+        }
+
+        header nav a {
+            display: inline-block;
+            height: inherit;
+            width: 80px;
+            background-color: white;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            display: inline-block;
+            height: inherit;
+            width: 80px;
+            background-color: gray;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-weight: bold;
+        }
+
+        section.hero {
+            height: 300px;
+            width: 1000px;
+            background-color: gray;
+            margin: 0px auto;
+        }
+
+        aside.left {
+            padding: 10px;
+        }
+
+        aside.left ul li {
+            list-style: none;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        aside.left ul li a{
+            text-decoration: none;
+            text-transform: capitalize;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home.html">home</a>
+            <a href="#about.html">about</a>
+            <a href="#contact.html">contact</a>
+        </nav>
+        <section class="hero"></section>
+    </header>
+    <div class="container">
+        <aside class="left">
+            <ul class="nav">
+                <li><a href="#">about us</a></li>
+                <li><a href="#">company profile</a></li>
+                <li><a href="#">our mission</a></li>
+            </ul>
+        </aside>
+        <section class="main"></section>
+        <aside class="right"></aside>
+        <div style="clear: left;"></div>
+    </div>
+</body>
+</html>
