@@ -1,0 +1,88 @@
+:root {
+    --main-width : 1000px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.clear {
+    clear: both;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: yellowgreen;
+}
+
+header > div{
+    height: 50px;
+    width: var(--main-width);
+    background-color: salmon;
+    margin: 0px auto;
+}
+
+header div nav {
+    float: left;
+}
+
+header div > a {
+    float: right;
+}
+
+header div a {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: bisque;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+}
+
+header section.hero {
+    width: var(--main-width);
+    height: 400px;
+    background-color: lightblue;
+    margin: 0px auto;
+    text-align: center;
+    padding: 30px;
+    padding-top: 100px;
+}
+
+header section.hero .hero-item {
+    display: block;
+    margin: 30px auto;
+}
+
+header section.hero h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+header section.hero p {
+    font-size: 30px;
+}
+
+header section.hero a {
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    background-color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: black;
+}
+
+
