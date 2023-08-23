@@ -17,13 +17,13 @@ body {
 }
 
 header.main {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 }
 
 header.main > div{
     height: 50px;
     width: var(--main-width);
-    background-color: salmon;
+    /* background-color: salmon; */
     margin: 0px auto;
 }
 
@@ -39,7 +39,7 @@ header.main div a {
     display: inline-block;
     width: 100px;
     height: 50px;
-    background-color: bisque;
+    /* background-color: bisque; */
     text-align: center;
     line-height: 50px;
     text-decoration: none;
@@ -51,7 +51,7 @@ header.main div a {
 header.main section.hero {
     width: var(--main-width);
     height: 400px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     margin: 0px auto;
     text-align: center;
     padding: 30px;
@@ -88,7 +88,7 @@ header.main section.hero a {
 section.content {
     width: var(--main-width);
     /* height: 400px; */
-    background-color: orangered;
+    /* background-color: orangered; */
     margin: 0px auto;
     padding: 5px;
 }
@@ -121,7 +121,7 @@ section.content section.main article p {
 
 section.content section.main footer.article {
     padding: 5px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 section.content section.main footer.article span.article-footer-item {
@@ -149,7 +149,42 @@ section.content aside.right {
     float: right;
     width: 25%;
     height: 100%;
-    background-color: gray;
+    /* background-color: gray; */
 }
 
+footer.end {
+    width: var(--main-width);
+    height: 300px;
+    /* background-color: salmon; */
+    margin: 0px auto;
+}
+
+footer.end .top{
+    height: 80%;
+    background-color: darkgray;
+    padding: 5px;
+}
+
+footer.end .top div.left,  footer.end .top div.right {
+    width: 22%;
+    height: 100%;
+    /* background-color: blueviolet; */
+    padding: 5px;
+    font-size: 12px;
+}
+
+footer.end .top div.left {
+    float: left;
+    margin-right: 5px;
+}
+
+footer.end .top div.right {
+    float: right;
+    margin-left: 5px;
+}
+
+footer.end .bottom {
+    height: 20%;
+    /* background-color: aquamarine; */
+}
 
