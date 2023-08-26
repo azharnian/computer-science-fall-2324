@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Display</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.container {
+            width: 800px;
+            height: 300px;
+            background-color: salmon;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* gap: 10px; */
+        }
+
+        div.item {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <!-- <div class="item">4</div>
+        <div class="item">5</div> -->
+    </div>
+</body>
+</html>
