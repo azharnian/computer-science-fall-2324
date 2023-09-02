@@ -1,0 +1,94 @@
+:root {
+    --container-width: 90%;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    height: 154px;
+    background-color: salmon;
+    width: var(--container-width);
+    margin: 0px auto;
+}
+
+nav div.top {
+    height: 62px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img.logo {
+    height: inherit;
+}
+
+nav div.top a.top-visit {
+    width: 150px;
+    height: inherit;
+    background-color: yellowgreen;
+    text-align: center;
+    line-height: 62px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: white;
+}
+
+nav div.bottom {
+    height: 92px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav div.bottom div.nav-bottom {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav div.bottom div.nav-bottom a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+section.hero {
+    height: calc(100vh - 154px);
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.hero h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    color: white;
+}
+
+section.faculty {
+    height: 302px;
+    background-color: salmon;
+    display: flex;
+}
+
+section.faculty div.item-faculty {
+    width: 25%;
+    height: inherit;
+    background-color: lightskyblue;
+    border: 1px solid black;
+}
+
+

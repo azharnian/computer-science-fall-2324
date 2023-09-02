@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Note App</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            height: 80px;
+            /* background-color: salmon; */
+        }
+
+        nav {
+            width: 85%;
+            height: inherit;
+            /* background-color: lightblue; */
+            margin: 0px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo{
+            font-size: 40pt;
+            font-weight: bold;
+        }
+
+        nav .right{
+            font-size: 25pt;
+            font-weight: bold;
+        }
+
+        nav .right a {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: gray;
+        }
+
+        section.content > form {
+            grid-area: form;
+            height: 100%;
+            /* background-color: yellowgreen; */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 30px;
+        }
+
+        section.content > ul {
+            grid-area: notes;
+            height: 100%;
+            /* background-color: lightblue; */
+            padding-top: 30px;
+            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        section.content {
+            width: 85%;
+            min-height: calc(100vh - 80px);
+            display: grid;
+            /* background-color: salmon; */
+            margin: 0px auto;
+            grid-template-areas: 'form notes';
+            grid-template-columns: 400px auto;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px gray solid;
+        }
+
+        section.content ul li{
+            list-style-type: none;
+            font-size: 18pt;
+            margin-bottom: 10px;
+        }
+
+        section.content ul li a {
+            display: inline-block;
+            text-decoration: none;
+            width: 40pt;
+            height: 40pt;
+            /* background-color: lightcoral; */
+            line-height: 40pt;
+            border-radius: 20pt;
+            text-align: center;
+        }
+
+        section.content form div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section.content form input[type=text] {
+            display: inline-block;
+            width: 85%;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 30px;
+            padding: 0px 10px;
+        }
+        
+        section.content form input[type=submit] {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo">Note 📓</span>
+            <div class="right">
+                <a href="#">about</a>
+            </div>
+        </nav>
+        <section class="hero"></section>
+    </header>
+    <section class="content">
+        <form method="post">
+            <div>
+                <input type="text" name="note" id="">
+                <input type="submit" value="❤️">
+            </div>
+        </form>
+        {% if notes %}
+        <ul class="notes">
+            {% for note in notes %}
+            <li>
+                {{ note[1] }}
+                <a href="#">🗑️</a>
+                <a href="#">🚩</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </section>
+
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+</body>
+</html>
