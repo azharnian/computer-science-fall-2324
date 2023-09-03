@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Color CSS</title>
+    <style>
+        div.container {
+            display: flex;
+            min-height: 100vh;
+            background-color: yellowgreen;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        div.box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            border-radius: 20px;
+            border: 3px white solid;
+        }
+
+        .one {
+            background-image: linear-gradient(to bottom right, red, purple);
+        }
+
+        .two {
+            background-image: radial-gradient(salmon, yellow, orange);
+        }
+
+        .three {
+            background-image: conic-gradient(purple, pink);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+        <div class="box four"></div>
+    </div>
+</body>
+</html>

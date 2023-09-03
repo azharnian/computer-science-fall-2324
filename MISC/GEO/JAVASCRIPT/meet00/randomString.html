@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random String</title>
+</head>
+<body>
+    <script>
+        var chars = "abcdefghijklmnopqrstuvwxz";
+        var randomString = "";
+
+        var counter = 0;
+        var randomChar;
+        while (counter < 10){
+            randomChar = chars[Math.floor(Math.random() * chars.length)];
+            randomString += randomChar;
+            counter++;
+        }
+        console.log(randomString);
+    </script>
+</body>
+</html>

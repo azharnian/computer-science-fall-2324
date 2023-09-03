@@ -3,6 +3,7 @@
 .git
 ocvEnv/
 dsEnv/
+webEnv/
 *.mp4
 
 ### Python ###
