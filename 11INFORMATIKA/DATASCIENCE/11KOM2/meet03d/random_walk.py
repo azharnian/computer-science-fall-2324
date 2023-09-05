@@ -27,8 +27,3 @@ class RandomWalk:
 
             self.x_values.append(x)
             self.y_values.append(y)
-
-            # keep_running = input("Make another walk ? (y/n): ")
-            # if keep_running == "n":
-            #     break
-
