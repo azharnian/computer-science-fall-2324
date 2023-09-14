@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Note App</title>
     <style>
+        div.alert {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+        }
+
+        div.alert-success {
+            background-color: greenyellow;
+        }
+
+        div.alert-warning {
+            background-color: salmon;
+        }
+
         * {
             margin: 0px;
             padding: 0px;
@@ -124,6 +140,21 @@
     </style>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
     <header>
         <nav>
             <span class="logo">Note 📓</span>
@@ -145,7 +176,7 @@
             {% for note in notes %}
             <li>
                 {{ note[1] }}
-                <a href="#">🗑️</a>
+                <a class="item-note" href="" data-url="{{url_for('delete', note_id=note[0])}}" data-note="{{note[1]}}">🗑️</a>
                 <a href="#">🚩</a>
             </li>
             {% endfor %}
@@ -157,6 +188,15 @@
         if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
         }
+
+        document.querySelectorAll(".item-note").forEach( (note) => {
+            note.onclick = () => {
+                const response = confirm(`Are you sure to delete note : ${note.dataset.note} ?`)
+                // console.log(note.dataset.url);
+                if (response)
+                    window.location.href = note.dataset.url
+            }
+        } )
     </script>
 </body>
 </html>

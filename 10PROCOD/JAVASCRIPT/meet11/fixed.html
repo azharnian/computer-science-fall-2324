@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Position</title>
+    <style>
+        .container {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            border: 1px solid black;
+            margin: 0px auto;
+            background-color: skyblue;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            position: relative;
+            background-color: yellow;
+            top: 100px;
+            left: 100px;
+        }
+
+        .green {
+            position: absolute;
+            background-color: green;
+            top: 100px;
+            left: 100px;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        .top-left {
+            position: fixed;
+            background-color: yellowgreen;
+            top: 0px;
+            left: 0px;
+        }
+
+        .top-right {
+            position: fixed;
+            background-color: salmon;
+            top: 0px;
+            right: 0px;
+        }
+
+        .bottom-left {
+            position: fixed;
+            background-color: yellow;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .bottom-right {
+            position: fixed;
+            background-color: orange;
+            bottom: 0px;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red"></div>
+        <div class="box yellow"></div>
+        <div class="box green"></div>
+        <div class="container2"></div>
+    </div>
+
+    <div class="circle top-left">❤️</div>
+    <div class="circle top-right">🚩</div>
+    <div class="circle bottom-left">📓</div>
+    <div class="circle bottom-right">☎️</div>
+</body>
+</html>

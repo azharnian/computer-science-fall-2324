@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 200vh;
+        }
+
+        nav {
+            width: 90%;
+            height: 50px;
+            margin: 0px auto;
+        }
+
+        nav.one {
+            background-color: salmon;
+        }
+
+        nav.two {
+            position: sticky;
+            top: 0;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <nav class="one"></nav>
+    <nav class="two"></nav>
+</body>
+</html>

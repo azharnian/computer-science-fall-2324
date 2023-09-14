@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes</title>
+    <style>
+        .container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            /* background-color: yellowgreen; */
+            margin: 0px auto;
+            border-radius: 40px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: salmon;
+            top: 0px;
+            left: 0px;
+            animation: oneAnimation 2s infinite;
+            /* animation-name: oneAnimation;
+            animation-duration: 2s;
+            animation-iteration-count: infinite; */
+            /* animation-direction:alternate; */
+
+        }
+
+        @keyframes simpleAnimation {
+            from {
+                left: 0px;
+            }
+
+            to {
+                left: calc(100% - 80px);
+            }
+        }
+
+        @keyframes oneAnimation {
+            0% {
+                top: 0px;
+                left: 0px;
+                background-color: purple;
+            }
+
+            25% {
+                top: 0px;
+                left: calc(100% - 80px);
+                background-color: aqua;
+            }
+
+            50% {
+                top: calc(100% - 80px);
+                left: calc(100% - 80px);
+                background-color: orange;
+            }
+
+            75% {
+                top: calc(100% - 80px);
+                left: 0px;
+                background-color: burlywood;
+            }
+
+            100% {
+                top: 0px;
+                left: 0px;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+    </div>
+</body>
+</html>

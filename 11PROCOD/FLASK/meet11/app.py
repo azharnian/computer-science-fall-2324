@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 import pymysql
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'SECRET'
 
 db_user = "root"
 db_password = ""
@@ -39,6 +40,29 @@ def index():
         cursor.close()
     return render_template("index.html", notes=notes)
 
+@app.route("/delete/<int:note_id>")
+def delete(note_id):
+    try :
+        cursor = connection.cursor()
+        cursor.execute(f"SELECT * FROM notes WHERE id = {note_id}")
+        note = cursor.fetchone()
+        if note:
+            cursor.execute(f"DELETE FROM notes WHERE id = {note_id}")
+            connection.commit()
+            msg = ("Your note had been already deleted.", "success")
+        else:
+            msg = ("Your note does not exists.", "warning")
+    except:
+        pass
+    finally:
+        cursor.close()
+    flash(msg[0], msg[1])
+    return redirect(url_for("index"))
+
+@app.route("/update/<int:note_id>")
+def update(note_id):
+    pass
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
