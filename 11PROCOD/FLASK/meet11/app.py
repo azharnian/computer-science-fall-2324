@@ -38,6 +38,7 @@ def index():
         notes = []
     finally:
         cursor.close()
+    # print(notes)
     return render_template("index.html", notes=notes)
 
 @app.route("/delete/<int:note_id>")
@@ -61,7 +62,16 @@ def delete(note_id):
 
 @app.route("/update/<int:note_id>")
 def update(note_id):
-    pass
+    try:
+        cursor = connection.cursor()
+        cursor.execute(f"SELECT * FROM notes WHERE id = {note_id}")
+        note = cursor.fetchone()
+    except:
+        pass
+    finally:
+        cursor.close()
+
+    return render_template("note_detail.html", note=note)
     
 
 if __name__ == "__main__":

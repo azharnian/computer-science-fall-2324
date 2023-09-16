@@ -140,48 +140,13 @@
     </style>
 </head>
 <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-
-        {% if messages %}
-
-            {% for category, message in messages %}
-
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-
-            {% endfor %}
-
-        {% endif %}
-
-    {% endwith %}
+    {% include 'components/alert_header.html' %}
     <header>
-        <nav>
-            <span class="logo">Note 📓</span>
-            <div class="right">
-                <a href="#">about</a>
-            </div>
-        </nav>
-        <section class="hero"></section>
+        {% include 'components/nav_sign_out.html' %}
+        {% include 'components/section_hero.html' %}
     </header>
     <section class="content">
-        <form method="post">
-            <div>
-                <input type="text" name="note" id="">
-                <input type="submit" value="❤️">
-            </div>
-        </form>
-        {% if notes %}
-        <ul class="notes">
-            {% for note in notes %}
-            <li>
-                {{ note[1] }}
-                <a class="item-note" href="" data-url="{{url_for('delete', note_id=note[0])}}" data-note="{{note[1]}}">🗑️</a>
-                <a href="#">🚩</a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        {% block section_content %}{% endblock %}
     </section>
 
     <script>
@@ -195,6 +160,7 @@
                 // console.log(note.dataset.url);
                 if (response)
                     window.location.href = note.dataset.url
+                    return false;
             }
         } )
     </script>

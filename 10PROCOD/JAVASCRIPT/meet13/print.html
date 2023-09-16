@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print or Not</title>
+    <style>
+        p {
+            font-size: 50pt;
+        }
+
+        @media print {
+            p.not-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>This is text</p>
+    <p>This is second text</p>
+    <p class="not-print">This text will not be printed</p>
+</body>
+</html>

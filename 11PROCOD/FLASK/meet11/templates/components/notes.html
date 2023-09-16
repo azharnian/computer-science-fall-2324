@@ -1,0 +1,11 @@
+{% if notes %}
+    <ul class="notes">
+        {% for note in notes %}
+        <li>
+            {{ note[1] }}
+            <a class="item-note" href="" data-url="{{url_for('delete', note_id=note[0])}}" data-note="{{note[1]}}">🗑️</a>
+            <a href="#">🚩</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}

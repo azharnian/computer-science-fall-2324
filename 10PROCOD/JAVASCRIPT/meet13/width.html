@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIN WIDTH</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: gray;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        h1::after {
+            content: "lorem lorem lorem!";
+        }
+
+        div.container {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.circle {
+            background: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        @media only screen and (max-width : 992px) {
+            body {
+                background-color: salmon;
+            }
+        }
+
+        @media only screen and (max-width : 768px) {
+            body {
+                background-color: yellowgreen;
+            }
+
+            h1::after {
+                content: ", World!";
+            }
+        }
+
+        @media only screen and (max-width : 600px) {
+            body {
+                background-color: orange;
+            }
+
+            h1::before {
+                content: "🤡";
+            }
+
+            h1::after {
+                content: "😘!";
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hello </h1>
+    <div class="container">
+        <div class="circle"></div>
+    </div>
+</body>
+</html>

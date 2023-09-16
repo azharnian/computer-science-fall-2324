@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block section_content %}
+    {% if note %}
+        <div>
+            <h1>Catatan ke-{{ note[0] }}</h1>
+            <p style="font-style: italic; font-size: 10px;"> dibuat pada tanggal : {{ note[2] }}</p>
+            <br>
+            <p>{{ note[1] }}</p>
+        </div>
+    {% else %}
+        <div>
+            <p>Tidak ada catatan.</p>
+        </div>
+    {% endif %}
+{% endblock %}
