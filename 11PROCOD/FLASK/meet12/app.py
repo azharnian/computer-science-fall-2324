@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_session import Session
 import pymysql
 
 app = Flask(__name__)
@@ -19,18 +20,15 @@ connection = pymysql.connect(
 @app.route("/", methods=["GET", "POST"])
 def index():
 
-    #insert data from form into db
     if request.method == "POST":
         note = request.form.get("note")
         try:
             cursor = connection.cursor()
-            # cursor.execute(f"INSERT INTO notes (note) VALUES ('{note}');")
             cursor.execute("INSERT INTO notes (note) VALUES (%s);", note )
             connection.commit()
         finally:
             cursor.close()
 
-    #read data all notes from db
     try:
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM notes;")
@@ -39,17 +37,18 @@ def index():
         notes = []
     finally:
         cursor.close()
-    # print(notes)
     return render_template("index.html", notes=notes)
 
 @app.route("/delete/<int:note_id>")
 def delete(note_id):
     try :
         cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM notes WHERE id = {note_id}")
+        # cursor.execute(f"SELECT * FROM notes WHERE id = {note_id}")
+        cursor.execute("SELECT * FROM notes WHERE id = %s", note_id)
         note = cursor.fetchone()
         if note:
-            cursor.execute(f"DELETE FROM notes WHERE id = {note_id}")
+            # cursor.execute(f"DELETE FROM notes WHERE id = {note_id}")
+            cursor.execute("DELETE FROM notes WHERE id = %s", note_id)
             connection.commit()
             msg = ("Your note had been already deleted.", "success")
         else:
@@ -74,7 +73,6 @@ def update(note_id):
     try:
         cursor.execute(f"SELECT * FROM notes WHERE id = {note_id}")
         note = cursor.fetchone()
-        # print(note)
     except:
         pass
     finally:

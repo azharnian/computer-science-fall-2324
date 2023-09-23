@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            background-color: greenyellow;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 38pt;
+            text-decoration: none;
+        }
+
+        div.container {
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0px auto;
+        }
+
+        section.page {
+            width: 100%;
+            min-height: 100vh;
+            background-color: salmon;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p, h1{
+            text-align: center;
+        }
+
+        section.page.one {
+            gap: 300pt;
+        }
+
+        section.page.one > div > h1 {
+            font-size: 30pt;
+        }
+
+        section.page.two {
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+        div.card {
+            padding: 10pt;
+            width: 250pt;
+            min-height: 300pt;
+            background-color: gray;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        div.circle {
+            width: 150pt;
+            height: 150pt;
+            border-radius: 75pt;
+            background-color: greenyellow;
+            margin-bottom: 50px;
+        }
+
+        div.line {
+            width: 150px;
+            height: 1px;
+            background-color: black;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="mobile">
+            <a href="#home">🏠</a>
+            <a href="#">❤️</a>
+            <a href="#">☎️</a>
+        </nav>
+        <section class="page one" id="home">
+            <div class="title">
+                <p>The Wedding of</p>
+                <h1>Budi & Cindy</h1>
+                <p>Minggu, 17 September 2023</p>
+            </div>
+
+            <div class="guest-name">
+                <p>Kepada Yth.</p>
+                <p>Dodi, Ph.D.</p>
+            </div>
+        </section>
+        <section class="page two">
+            <h2>The Beloved</h2>
+            <h1>Budi & Cindy</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae unde eius exercitationem nobis, vitae deleniti dolore ipsum autem minus labore cupiditate quaerat. Officiis, voluptatum repudiandae architecto eligendi et at perferendis.</p>
+            <div class="card">
+                <div class="circle"></div>
+                <h1>Cindy Gunawan Siregar,S.Pd.</h1>
+                <div class="line"></div>
+                <p>Putri Pertama</p>
+                <p>Bapak Syamsudin</p>
+                <p>&</p>
+                <p>Ibu Sumiati</p>
+            </div>
+        </section>
+        <section class="page"></section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        // an array of item
+        var items = ["cat", "seal", "dog"]
+        var h1 = document.createElement("h1")
+        var randomItem = items[Math.floor(Math.random() * items.length)]
+        // console.log(randomItem)
+
+        var blankArray = []
+        for (char in randomItem){
+            blankArray.push("_")
+        }
+        // console.log(blankArray.join(" "))
+
+        h1.innerHTML = blankArray.join(" ")
+        var rootElement = document.getElementById("root")
+        rootElement.append(h1)
+
+        var remainingLetter = randomItem.length
+        while (true){
+            // console.log(blankArray.join(" "))
+            var guessLetter = prompt(`${blankArray.join(" ")}, Guess a letter ... `)
+            
+            for (i = 0; i < randomItem.length; i++){
+                if (randomItem[i] === guessLetter){
+                  alert("You got it!")                    
+                  blankArray[i] = guessLetter 
+                  remainingLetter--; 
+                }
+            }
+            if (remainingLetter == 0)
+                break
+        }
+
+    </script>
+</body>
+</html>
