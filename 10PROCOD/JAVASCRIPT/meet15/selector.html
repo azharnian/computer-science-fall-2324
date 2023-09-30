@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+</head>
+<body>
+    <h1>Hello, world 1!</h1>
+    <h2 class="heading-2">Hello, world 2!</h2>
+    <h3 id="heading-3">Hello, world 3!</h3>
+</body>
+<script>
+    document.querySelector("h1").innerHTML = "Bye, world 1"
+    document.querySelector(".heading-2").innerHTML = "Bye, world 2"
+    document.querySelector("#heading-3").innerHTML = "Bye, world 3"
+    document.getElementById("heading-3").style.color = "yellowgreen"
+    document.getElementsByClassName("heading-2").style.color = "red" //read-only
+</script>
+</html>

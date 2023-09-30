@@ -2,17 +2,24 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from flask_session import Session
 import pymysql
 from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
+import os
+
+from forms import RegistrationForm
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SECRET'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = False
 Session(app)
 
-db_user = "root"
-db_password = ""
-db_host = "localhost"
-db_name = "meet12"
+db_user = os.getenv("DATABASE_USER")
+db_password = os.getenv("DATABASE_PASSWORD")
+db_host = os.getenv("DATABASE_HOST")
+db_name = os.getenv("DATABASE_NAME")
 
 connection = pymysql.connect(
     host=db_host,
@@ -118,7 +125,8 @@ def login():
         cursor.execute("SELECT * FROM users WHERE username = %s", username)
         user = cursor.fetchone()
         if user:
-            if username == user[1] and password == user[2]:
+            # if username == user[1] and password == user[2]:
+            if username == user[1] and check_password_hash(user[2], password):
                 # print("ok")
                 session["user_id"] = user[0]
                 flash("Login Successfull", "success")
@@ -132,8 +140,19 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    
-    return render_template("signup.html")
+    form = RegistrationForm()
+
+    if form.validate_on_submit(): #handling form post
+        # print(form.username.data, form.password.data)
+        username = form.username.data
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
+
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s);", (username, hashed_password))
+        connection.commit()
+        flash("Registration Success", "success")
+        return redirect(url_for("login"))
+    return render_template("signup.html", form=form)
 
 @app.route("/logout")
 @login_required

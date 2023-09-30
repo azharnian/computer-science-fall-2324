@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var h3Element = document.createElement("h3")
+    h3Element.innerHTML = "Hello, World!"
+
+    var pElement = document.createElement("p")
+    pElement.innerHTML = "Lorem lorem lorem"
+
+    var body = document.querySelector("body")
+    body.append(h3Element)
+    body.append(pElement)
+</script>
+</html>
