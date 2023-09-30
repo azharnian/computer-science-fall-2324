@@ -7,3 +7,12 @@ class RegistrationForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired(), Length(min=8)])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password", message="Password must match")])
     submit = SubmitField("Sign Up")
+
+class LoginForm(FlaskForm):
+    pass
+
+class CreateNoteForm(FlaskForm):
+    pass
+
+class UpdateNoteForm(FlaskForm):
+    pass
