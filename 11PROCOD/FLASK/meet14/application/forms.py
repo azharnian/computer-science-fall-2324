@@ -14,7 +14,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 class CreateNoteForm(FlaskForm):
-    pass
+    note = StringField("Note", validators=[DataRequired(), Length(min=5)])
+    submit = SubmitField("Add Note")
 
 class UpdateNoteForm(FlaskForm):
-    pass
+    note = StringField("Note", validators=[DataRequired(), Length(min=5)])
+    submit = SubmitField("Update Note")

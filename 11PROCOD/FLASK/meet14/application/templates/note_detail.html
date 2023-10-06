@@ -8,10 +8,11 @@
             <br>
             <!-- <p>{{ note[1] }}</p> -->
             <form method="post">
-                <input type="text" name="new_note" id="new_note" value="{{ note[1] }}">
+                {{ form.hidden_tag() }}
+                {{ form.note(value=note.id, id="new_note") }}
                 <div class="btns">
                     <a class="btn" href="{{url_for('index')}}">Batal</a>
-                    <input type="submit" value="Perbarui Catatan" class="update-note">
+                    {{ form.submit(class="update-note") }}
                 </div>
                
             </form>
