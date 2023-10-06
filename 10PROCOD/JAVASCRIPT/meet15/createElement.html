@@ -15,8 +15,13 @@
     var pElement = document.createElement("p")
     pElement.innerHTML = "Lorem lorem lorem"
 
+    var box = document.createElement("div")
+    box.classList.add("box")
+    box.style.backgroundColor = "salmon"
+
     var body = document.querySelector("body")
-    body.append(h3Element)
-    body.append(pElement)
+    body.append(box)
+    box.append(h3Element)
+    box.append(pElement)
 </script>
 </html>

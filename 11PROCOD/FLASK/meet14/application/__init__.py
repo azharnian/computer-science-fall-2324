@@ -15,4 +15,5 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = os.getenv("SQLALCHEMY_TRACK_MODIF
 Session(app)
 db = SQLAlchemy(app)
 
+from application.models import *
 from application import routes

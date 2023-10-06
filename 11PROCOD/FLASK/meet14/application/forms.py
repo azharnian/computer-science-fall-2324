@@ -9,7 +9,9 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField("Sign Up")
 
 class LoginForm(FlaskForm):
-    pass
+    username = StringField("Username", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired(), Length(min=4)])
+    submit = SubmitField("Login")
 
 class CreateNoteForm(FlaskForm):
     pass
