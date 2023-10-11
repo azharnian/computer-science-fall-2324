@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>is it new year ?</title>
+</head>
+<body>
+    <h1></h1>
+</body>
+<script>
+    let date = new Date();
+    let h1 = document.querySelector("h1");
+    // if (date.getDate() === 1 && date.getMonth() === 0)
+    //     h1.innerHTML = "YES";
+    // else
+    //     h1.innerHTML = "NO";
+    let msg;
+    (date.getDate() === 1 && date.getMonth() === 0) ? msg = "YES" : msg = "NO"; 
+    h1.innerHTML = msg;
+</script>
+</html>
