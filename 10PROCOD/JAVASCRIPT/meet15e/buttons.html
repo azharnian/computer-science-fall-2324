@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>query selector all</title>
+</head>
+<body>
+    <button>one</button>
+    <button>two</button>
+    <button>three</button>
+</body>
+<script>
+    // console.log(document.querySelector("button").innerHTML)
+    let buttons = document.querySelectorAll("button");
+    buttons.forEach(function (button) {
+        console.log(button.innerHTML);
+    } )
+</script>
+</html>

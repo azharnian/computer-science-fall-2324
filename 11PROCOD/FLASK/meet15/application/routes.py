@@ -23,7 +23,7 @@ def login():
         else:
             flash('Invalid username or password', 'error')
 
-    return render_template('login.html')
+    return render_template('login.html', form=form)
 
 @app.route('/logout')
 @login_required

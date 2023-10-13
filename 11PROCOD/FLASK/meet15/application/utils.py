@@ -3,8 +3,6 @@ from wtforms.validators import ValidationError
 from application import login_manager
 from application.models import User
 
-
-
 #FORM UTILS
 def exists_email(form, email):
     user = User.query.filter_by(email = email.data).first()

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function changeRed(){
+            document.querySelector("body").style.backgroundColor = "red";
+        }
+        function changeGreen(){
+            document.querySelector("body").style.backgroundColor = "green";
+        }
+        function changeBlue(){
+            document.querySelector("body").style.backgroundColor = "blue";
+        }
+    </script>
+    <title>Buttons</title>
+</head>
+<body>
+    <button data-color="salmon">Red</button>
+    <button data-color="yellowgreen">Green</button>
+    <button data-color="lightblue">Blue</button>
+</body>
+<script>
+    // function changeColor(color){
+    //     document.querySelector("body").style.backgroundColor = color;
+    // }
+
+    document.querySelectorAll("button").forEach(function(button){
+        // console.log(button.dataset.color);
+        // button.onclick = changeColor(button.dataset.color);
+        button.addEventListener("click", function(){
+            document.querySelector("body").style.backgroundColor = this.dataset.color;
+        });
+    })
+</script>
+</html>
