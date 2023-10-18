@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function add(a, b){
+    //     return a+b;
+    // }
+
+    let add = (a, b) => {
+        return a+b;
+    }
+
+    // function subtract(a, b){
+    //     return a-b;
+    // }
+
+    const subtract = (a, b) => {
+        return a - b;
+    }
+
+    // function ketawa(){
+    //     console.log("😂😂😂😂");
+    // }
+
+    const ketawa = () => {
+        console.log("😂😂😂😂");
+    }
+
+    const findCircleArea = r => {
+        return 3.14159 * r * r ;
+    }
+
+    const findCirclePerimeter = function (r) {
+        return 2 * 3.14159 * r;
+    }
+
+    console.log(2 + 2);
+    console.log(add(2, 2));
+
+    // (2 + 3) - 10
+    let result = subtract(add(2, 3), 10);
+    console.log(result);
+    ketawa();
+    // add();
+    console.log(findCircleArea(100));
+</script>
+</html>
