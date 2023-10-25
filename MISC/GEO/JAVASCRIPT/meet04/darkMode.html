@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        .dark {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <button>🌙</button>
+</body>
+<script>
+    // localStorage.setItem("dark", "true");
+    // let dark = localStorage.getItem("dark");
+    // sessionStorage.setItem("dark", "true");
+    let dark = JSON.parse(localStorage.getItem("dark"));
+    // document.querySelector("h1").innerHTML = dark;
+    // console.log(dark);
+    if (dark === true){
+        document.querySelector("body").classList.add("dark")
+    } else {
+        document.querySelector("body").classList.remove("dark")
+    }
+    document.querySelector("button").onclick = function (){
+        // document.querySelector("body").classList.toggle("dark");
+        // localStorage.setItem("dark", !dark);
+        dark = JSON.parse(localStorage.getItem("dark"));
+        if (dark === true){
+            document.querySelector("body").classList.remove("dark");
+            localStorage.setItem("dark", "false")
+        } else {
+            document.querySelector("body").classList.add("dark");
+            localStorage.setItem("dark", "true")
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let counterValue = 0;
+
+            const increaseBtn = document.getElementById("increase");
+            const decreaseBtn = document.getElementById("decrease");
+            const resetBtn = document.getElementById("reset");
+            const h1Text = document.querySelector("h1");
+
+            function setText(){
+                h1Text.innerHTML = counterValue;
+            }
+
+            increaseBtn.addEventListener("click", function(){
+                counterValue++;
+                setText();
+            })
+
+            decreaseBtn.onclick = () => {
+                counterValue--;
+                setText();
+            }
+            
+        })
+    </script>
+    <title>Counter</title>
+</head>
+<body>
+    <h1>0</h1>
+    <div>
+        <button id="increase">+</button>
+        <button id="decrease">-</button>
+        <button id="reset">reset</button>
+    </div>
+</body>
+<script>
+    
+</script>
+</html>
