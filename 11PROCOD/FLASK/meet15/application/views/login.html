@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	<div class="">
+        <form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="">
+				<legend class="">Login</legend>
+
+				<div class="">
+					{{ form.username.label(class="") }}
+
+					{% if form.username.errors%}
+						{{ form.username(class="") }}
+						<div class="">
+							{% for error in form.username.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.username(class=" ") }}
+					{% endif %}
+
+				</div>
+
+				<div class="">
+					{{ form.password.label(class="") }}
+
+					{% if form.password.errors%}
+						{{ form.password(class="") }}
+						<div class="">
+							{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class=" ") }}
+					{% endif %}
+
+				</div>
+			</fieldset>
+			<div class="">
+				{{ form.submit(class="btn btn-outline-info") }}
+				<small class="">
+					<a href="#">Lupa Kata Sandi?</a>
+				</small>
+			</div>
+			<small class="">
+				<a href="{{ url_for('signup') }}">Belum punya akun ?</a>
+			</small>
+
+		</form>
+	</div>
+{% endblock content %}
