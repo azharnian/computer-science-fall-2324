@@ -8,7 +8,7 @@ from application.forms import *
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('protected'))
+        return redirect(url_for('profile'))
 
     form = LoginForm()
 
@@ -19,7 +19,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and password == user.password:
             login_user(user)
-            return redirect(url_for('protected'))
+            return redirect(url_for('profile'))
         else:
             flash('Invalid username or password', 'error')
 
