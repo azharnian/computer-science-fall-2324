@@ -23,7 +23,7 @@ def login():
         else:
             flash('Invalid username or password', 'error')
 
-    return render_template('login.html', form=form)
+    return render_template('login.html', title="Login", form=form)
 
 @app.route('/logout')
 @login_required
@@ -31,14 +31,24 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/protected')
+@app.route('/profile')
 @login_required
-def protected():
-    return 'This is a protected page. You are logged in as ' + current_user.username
+def profile():
+    return render_template('profile.html', title=f'{current_user.fullname} Profile')
 
 @app.route('/')
+@login_required
 def index():
-    return 'ok'
+    return render_template('index.html', title='Home')
+
+@app.route('/signup')
+def signup():
+    form = SignUpForm()
+    return render_template('signup.html', title='SignUp', form=form)
+
+@app.route('/about')
+def about():
+    return render_template('about.html', title='About')
 
 if __name__ == '__main__':
     app.run(debug=True)
