@@ -4,6 +4,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from application import app
 from application.models import *
 from application.forms import *
+from application.utils import save_image
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -36,10 +37,24 @@ def logout():
 def profile():
     return render_template('profile.html', title=f'{current_user.fullname} Profile')
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html', title='Home')
+    form = CreatePostForm()
+
+    posts = Post.query.filter_by(author_id = current_user.id).all()
+
+    if form.validate_on_submit():
+        post = Post(
+            author_id = current_user.id,
+            caption = form.caption.data
+        )
+        post.photo = save_image(form.post_pic.data)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your image has been posted 🩷!', 'success')
+
+    return render_template('index.html', title='Home', form=form, posts=posts)
 
 @app.route('/signup')
 def signup():
