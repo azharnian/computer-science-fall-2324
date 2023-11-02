@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let printCrab = number => {
+        console.log(`${number} 🦀`);
+    }
+
+    for (let i = 0;i < 11; i++){
+        printCrab(i);
+    }
+
+    let counter = 1;
+    let crabCounterInterval = setInterval(()=>{
+        console.log(`${counter} 🦀`);
+        if (counter === 10)
+            clearInterval(crabCounterInterval);
+        counter++;
+    }, 1000);
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Down</title>
+</head>
+<body>
+    <h1 id="day"></h1>
+    <h1 id="minute"></h1>
+    <h1 id="second"></h1>
+</body>
+<script>
+    let timer = 1000000;
+    let minuteText = document.getElementById("minute");
+    let secondText = document.getElementById("second");
+
+    setInterval(() => {
+        let day = Math.floor()
+        let minute = Math.floor(timer/60);
+        let second = timer % 60;
+
+        minuteText.innerHTML = minute;
+        secondText.innerHTML = second;
+
+        timer--;
+    }, 1000);
+</script>
+    
+</html>
