@@ -27,6 +27,7 @@
         }
         
         nav {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,7 +65,36 @@
 
         @media screen and (max-width: 576px) {
             ul {
+                position: absolute;
+                right: 0px;
+                top: 80px;
+                background-color: blueviolet;
+                height: calc(100vh - 80px);
+                width: 250px;
                 display: none;
+                flex-direction: column;
+                gap: 50px;
+                padding-top: 50px;
+            }
+
+            ul.show {
+                display: flex;
+            }
+
+            ul li {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            ul li a {
+                display: block;
+                background-color: whitesmoke;
+                font-size: 24px;
+                border-bottom: 3px solid black;
+            }
+
+            ul li a::before {
+                content: "🚩";
             }
 
             .menu-icon {
@@ -78,7 +108,7 @@
     <header>
         <nav>
             <div class="circle"></div>
-            <ul>
+            <ul id="menu">
                 <li>
                     <a href="#">Home</a>
                 </li>
@@ -95,6 +125,13 @@
                 <span></span>
                 <span></span>
             </div>
+            <script>
+
+                document.querySelector(".menu-icon").addEventListener('click', () => {
+                    // alert("clicked!")
+                    document.getElementById("menu").classList.toggle('show');
+                })
+            </script>
         </nav>
     </header>
 </body>
