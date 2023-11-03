@@ -9,7 +9,7 @@ from application.utils import save_image
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('profile'))
+        return redirect(url_for('index'))
 
     form = LoginForm()
 
@@ -32,15 +32,12 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-# @app.route('/profile')
-# @login_required
-# def profile():
-#     return render_template('profile.html', title=f'{current_user.fullname} Profile')
-
 @app.route('/<string:username>')
 @login_required
 def profile(username):
-    return render_template('profile.html', title=f'{current_user.fullname} Profile')
+    posts = current_user.posts
+    reverse_posts = posts[::-1]
+    return render_template('profile.html', title=f'{current_user.fullname} Profile', posts=reverse_posts)
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
