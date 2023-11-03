@@ -40,21 +40,7 @@ def profile():
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    form = CreatePostForm()
-
-    posts = Post.query.filter_by(author_id = current_user.id).all()
-
-    if form.validate_on_submit():
-        post = Post(
-            author_id = current_user.id,
-            caption = form.caption.data
-        )
-        post.photo = save_image(form.post_pic.data)
-        db.session.add(post)
-        db.session.commit()
-        flash('Your image has been posted 🩷!', 'success')
-
-    return render_template('index.html', title='Home', form=form, posts=posts)
+    return render_template('index.html', title='Home')
 
 @app.route('/signup')
 def signup():
