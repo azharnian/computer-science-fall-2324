@@ -9,7 +9,35 @@
     
 </body>
 <script>
-    document.cookie = "dark=true";
-    console.log(document.cookie)
+    let date = new Date()
+    console.log(date)
+    document.cookie = "dark=true; expires=Sun, 1 January 2030 12:00:00 UTC; path=/";
+
+    function setCookie(name, value, dayToLive){
+        const date = new Date();
+        date.setTime(date.getTime() + dayToLive * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+    }
+
+    function deleteCookie(name){
+        setCookie(name, null, null);
+    }
+
+    function getCookie(name){
+        const cookieDecoded = decodeURIComponent(document.cookie);
+        const cookieArr = cookieDecoded.split("; ");
+        let result = null;
+
+        cookieArr.forEach(element => {
+            if (element.indexOf(name) === 0){
+                result = element.substring(name.length + 1);
+            }
+        })
+
+        return result;
+
+        
+    }
 </script>
 </html>

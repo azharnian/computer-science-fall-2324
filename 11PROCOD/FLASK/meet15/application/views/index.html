@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="form-box" style="border: 1px black solid;">
+    <div class="new-post-box" style="border: 1px black solid;">
         <h2>Create a New Post</h2>
         <form method="POST" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
@@ -31,6 +31,15 @@
                 <img src="{{ url_for('static', filename='' + post.photo) }}" alt="Post Image">
                 <p>{{ post.caption }}</p>
             </div>
+        {% endfor %}
+    </div>
+    <div class="pagination-box">
+        {% for page_number in posts.iter_pages() %}
+            {% if page_number == posts.page %}
+                <a href="{{ url_for('index', page=page_number) }}" style="color: red;">{{page_number}}</a>
+            {% else %}
+                <a href="{{ url_for('index', page=page_number) }}" style="color: black;">{{page_number}}</a>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock content %}
