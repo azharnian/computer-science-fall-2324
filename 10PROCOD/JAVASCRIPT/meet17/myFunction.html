@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myFunction</title>
+</head>
+<body>
+</body>
+<script>
+    function showResult(idText, result){
+        document.getElementById(idText).innerHTML = result;
+    }
+
+    function showH1(text){
+        const h1Text = document.createElement("h1");
+        h1Text.innerHTML = text;
+        document.querySelector("body").append(h1Text);
+    }
+
+    function showP(text){
+        const pText = document.createElement("p");
+        pText.innerHTML = text;
+        document.querySelector("body").append(pText);
+    }
+
+    function sumNumber(a, b, showFunction){
+        const result = a + b;
+        showFunction(result);
+    }
+
+    function subNumber(a, b, showFunction) {
+        const result = a - b;
+        showFunction(result);
+    }
+
+    sumNumber(10, 20, showP);
+    sumNumber(10, 20, showH1);
+    subNumber(50, 30, showP);
+    subNumber(50, 30, showH1);
+
+    sumNumber(100, 200, function(text) {
+        const h1Text = document.createElement("h1");
+        h1Text.innerHTML = text;
+        h1Text.style.color = "red";
+        document.querySelector("body").append(h1Text);
+    });
+
+    sumNumber(100, 300, text => {
+        console.log(text);
+    });
+</script>
+</html>

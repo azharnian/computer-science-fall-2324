@@ -36,7 +36,7 @@
         }
 
         img {
-            width: 200px;
+            width: 550px;
         }
 
         div.pagination-box {
@@ -44,6 +44,19 @@
             text-align: center;
             padding: 5px;
             margin-bottom: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; 
+        }
+
+        .grid-item {
+            background-size: cover;
+            background-position: center;
+            /* width: 100%; */
+            /* padding-top: 100%; */
         }
     </style>
     {% if title %}

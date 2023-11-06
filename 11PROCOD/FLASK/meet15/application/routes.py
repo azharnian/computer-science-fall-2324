@@ -40,7 +40,9 @@ def logout():
 @app.route('/<string:username>')
 @login_required
 def profile(username):
-    return render_template('profile.html', title=f'{current_user.fullname} Profile')
+
+    posts = current_user.posts
+    return render_template('profile.html', title=f'{current_user.fullname} Profile', posts=posts)
 
 @app.route('/', methods=['GET', 'POST'])
 @login_required
@@ -61,6 +63,8 @@ def index():
     posts = Post.query.filter_by(author_id = current_user.id)\
                         .order_by(Post.post_date.desc())\
                         .paginate(page=page, per_page=3)
+
+    # posts = current_user.posts
 
     return render_template('index.html', title='Home', form=form, posts=posts)
 
