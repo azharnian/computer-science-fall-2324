@@ -1,11 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <h1>Hi - {{ current_user.fullname }}</h1>
+    <div class="profile-card">
+        <div class="profile-photo">
+            <img src="{{ url_for('static', filename='images/' + current_user.profile_pic ) }}" alt="Profile Photo">
+        </div>
+        <div class="profile-info">
+            <h2>{{current_user.fullname}}</h2>
+            <p>{{ current_user.bio }}</p>
+            <p>Following: {{ current_user.following_users|length }}</p>
+            <p>Follower: {{ current_user.follower_users|length }}</p>
+        </div>
+    </div>
 
-    <div class="grid-container">
+    <div class="image-container">
         {% for post in posts %}
-            <img class="grid-item" src="{{ url_for('static', filename='' + post.photo) }}" alt="Post Image">
+        <div class="image-item"><img src="{{ url_for('static', filename='' + post.photo) }}" alt="Post Image"></div>
         {% endfor %}
     </div>
 {% endblock content %}
