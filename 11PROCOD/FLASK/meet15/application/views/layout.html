@@ -31,7 +31,7 @@
         div.post-container {
             border: 1px solid black;
             margin: 50px auto;
-            text-align: center;
+            /* text-align: center; */
             padding: 5px;
         }
 
@@ -102,6 +102,21 @@
 
         .profile-info p {
             margin: 5px 0;
+        }
+
+        .post {
+            /* background-color: cyan; */
+            margin: 5px 10px;
+            padding: 0px 15px;
+        }
+
+        .post-header, .post-footer {
+            display: flex;
+            gap: 10px;
+        }
+
+        .post-header img {
+            border-radius: 50%;
         }
     </style>
     {% if title %}

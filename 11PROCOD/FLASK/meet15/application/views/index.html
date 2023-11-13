@@ -28,11 +28,38 @@
     <div class="post-container">
         {% for post in posts %}
             <div class="post">
+                <div class="post-header">
+                    <img src="{{ url_for('static', filename='images/' + post.posts_owner.profile_pic ) }}" alt="Post owner" style="height: 30px; width: 30px;">
+                    <h2>{{  post.posts_owner.username }}</h2>
+                </div>
                 <img src="{{ url_for('static', filename='' + post.photo) }}" alt="Post Image">
                 <p>{{ post.caption }}</p>
+
+                <div class="post-footer">
+                    <span id="likeBtn" data-post-id="{{ post.id }}">❤️</span><span id="likeCounter">{{post.likes | length}}</span>
+                    <span id="commentBtn" data-post-id="{{ post.id }}>🚩</span><span id="commentCounter">{{ post.comments | length }}</span>
+                </div>
             </div>
         {% endfor %}
     </div>
+    <script>
+        document.querySelectorAll("#likeBtn").forEach(btn => {
+            btn.addEventListener('click', function(){
+                console.log(this.dataset.postId);
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', `/like/${this.dataset.postId}`, true);
+                xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        console.log(response.status);
+                    } 
+                };
+                xhr.send();
+            })
+        })
+    </script>
     <div class="pagination-box">
         {% for page_number in posts.iter_pages() %}
             {% if page_number == posts.page %}
