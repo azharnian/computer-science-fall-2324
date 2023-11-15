@@ -18,6 +18,7 @@ int main(){
     int **pp = &p;
 
     cout << **pp << endl;
+    cout << sizeof(long long) << endl;
     cout << sizeof(int*) << endl;
 
     return 0;

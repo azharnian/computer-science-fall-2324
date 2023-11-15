@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Carousel</title>
+  <style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    .carousel {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        background: gray;
+    }
+
+    .carousel-slide {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        position: absolute;
+        animation: slide 3s ease infinite;
+    }
+
+    .carousel .carousel-slide:nth-child(1){
+        background: salmon url();
+    }
+
+    .carousel .carousel-slide:nth-child(2){
+        background: greenyellow url();
+    }
+
+    .carousel .carousel-slide:nth-child(3){
+        background: orangered url();
+    }
+
+    @keyframes slide {
+        0%, 100% { opacity: 0; }
+        10%, 90% { opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <div class="carousel-slide">
+      <!-- <img src="image1.jpg" alt="Image 1"> -->
+    </div>
+    <div class="carousel-slide">
+      <!-- <img src="image2.jpg" alt="Image 2"> -->
+    </div>
+    <div class="carousel-slide">
+      <!-- <img src="image3.jpg" alt="Image 3"> -->
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".carousel-slide");
+        let currentSlideIndex = 0;
+
+        function showSlide(index) {
+            slides[currentSlideIndex].style.display = "none";
+            currentSlideIndex = (index + slides.length) % slides.length;
+            slides[currentSlideIndex].style.display = "block";
+        }
+
+        function nextSlide() {
+            showSlide(currentSlideIndex + 1);
+        }
+
+        showSlide(currentSlideIndex);
+        
+        setInterval(nextSlide, 1000);
+    });
+
+  </script>
+</body>
+</html>

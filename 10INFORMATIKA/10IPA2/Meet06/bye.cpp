@@ -8,7 +8,8 @@ int main(){
     // {
     //     cout << c << endl;
     // }
-    int len = sizeof(t) / sizeof(char);
+    cout << sizeof(string) << endl;
+    int len = sizeof(t) / sizeof(char) - 1;
     cout << len << endl;
     for (int i = 0; i < len; i++)
     {
