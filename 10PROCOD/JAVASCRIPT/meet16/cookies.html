@@ -11,9 +11,9 @@
 <script>
     // document.cookie = "dark=true";
     // console.log(navigator.cookieEnabled);
-    document.cookie = "username=patrick; expires= Sun, 1 January 2000 12:00:00 UTC";
-    document.cookie = "firstName=patrick; expires=Mon, 1 January 2050 12:00:00 UTC; path=/";
-    document.cookie = "lastName=star";
+    // document.cookie = "username=patrick; expires= Sun, 1 January 2000 12:00:00 UTC";
+    // document.cookie = "firstName=patrick; expires=Mon, 1 January 2050 12:00:00 UTC; path=/";
+    // document.cookie = "lastName=star";
 
 
     function setCookie() {
@@ -24,6 +24,7 @@
 
     }
 
-    console.log(document.cookie);
+    // console.log(document.cookie);
+    setCookie("username", "patrick", 1000);
 </script>
 </html>

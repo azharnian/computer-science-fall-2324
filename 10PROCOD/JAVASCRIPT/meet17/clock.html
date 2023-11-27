@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span id="hour"></span>:
+        <span id="minute"></span>:
+        <span id="second"></span>
+    </div>
+    <script>
+        let timer = 7505;
+        const hourText = document.getElementById("hour");
+        const minuteText = document.getElementById("minute");
+        const secondText = document.getElementById("second");
+
+        function showTimer(timer){
+            const hour = Math.floor(timer / 3600);
+            const minute = Math.floor((timer % 3600) / 60);
+            const second = timer % 60;
+
+            hourText.innerHTML = hour.toString().padStart(2, "0");
+            minuteText.innerHTML = minute.toString().padStart(2, "0");
+            secondText.innerHTML = second.toString().padStart(2, "0");
+        }    
+
+        showTimer(timer);
+        setInterval(function(){
+            timer--;
+            showTimer(timer);
+
+        }, 1000);
+    </script>
+</body>
+</html>
