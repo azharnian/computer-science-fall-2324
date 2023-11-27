@@ -3,6 +3,7 @@
 .git
 ocvEnv/
 dsEnv/
+ds-env/
 webEnv/
 *.mp4
 
