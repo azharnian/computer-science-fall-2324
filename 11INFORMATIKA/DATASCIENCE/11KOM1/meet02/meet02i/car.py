@@ -14,10 +14,10 @@ class Boat(Vehicle):
     def move(self):
         print(f"The {self.type} is sailing ...")
 
-class Car(Vehicle):
+class Car():
 
     def __init__(self, make, model, year):
-        super().__init__(type = "Car")
+        # super().__init__(type = "Car")
         self.make = make
         self.model = model
         self.year = year
