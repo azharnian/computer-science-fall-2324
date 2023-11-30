@@ -9,6 +9,9 @@ int main(){
     int *p = &n;
 
     cout << p << endl;
-    cout << *p << endl;
+    *p += 10;
+
+    cout << n << endl;
+    cout << p + 10 << endl;
     return 0;
 }
