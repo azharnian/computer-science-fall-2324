@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pet</title>
+</head>
+<body>
+
+<script>
+
+    let dog = {
+        name : "Molly",
+        age : 2,
+        sex : false,
+        owner : "Budi",
+
+        say : function (){
+            console.log("Woof .. woof! ");
+        },
+
+        eat : function (){
+            console.log(`${this.name} is eating now!`);
+        }
+    };
+
+    let cat = {
+        name : "Oped",
+        age : 24,
+        sex : false,
+        owner : "Anas",
+
+        say : () => {
+            console.log("Meow .. meow!")
+        }
+    };
+
+    console.log(`My dog is ${dog.name}`);
+    console.log(`My cat's owner is ${cat['owner']}`);
+    dog.say();
+    cat.say();
+
+</script>
+</body>
+</html>
