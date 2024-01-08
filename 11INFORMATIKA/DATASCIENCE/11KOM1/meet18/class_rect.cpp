@@ -27,19 +27,18 @@ class Rect {
         {
             height = n;
         }
-
-
 };
 
 class ColorRect : public Rect {
     std::string color;
 
-    ColorRect(std::string n, int w, int h, std::string co) : Rect(n, w, h), color(co) {}
+    public:
+        ColorRect(std::string n, int w, int h, std::string co) : Rect(n, w, h), color(co) {}
 
-    double get_perimeter() const 
-    {
-        return 2 * get_width() + 2 * height;
-    }
+        double get_perimeter() const 
+        {
+            return 2 * get_width() + 2 * height;
+        }
 };
 
 int main()
@@ -50,7 +49,7 @@ int main()
     std::cout << my_rect.get_width() << std::endl;
 
     ColorRect my_second_rect("my second rect", 20, 30, "red");
-    my_second_rect.get_perimeter();
+    std::cout << my_second_rect.get_perimeter() << std::endl;
 
     return 0;
 }

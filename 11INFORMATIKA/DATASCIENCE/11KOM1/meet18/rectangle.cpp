@@ -48,6 +48,7 @@ int main()
     Rect my_rect("my rect",10, 20);
     std::cout << my_rect.get_area() << std::endl;
 
+    std::cout << my_rect.name << std::endl;
     // std::cout << my_rect.width << std::endl;
     std::cout << my_rect.get_width() << std::endl;
 
