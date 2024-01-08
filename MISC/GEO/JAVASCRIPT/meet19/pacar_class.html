@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacar</title>
+</head>
+<body>
+
+<script>
+//    function Pacar(name, umur, kelamin)
+//    {
+//         this.name = name;
+//         this.umur = umur;
+//         this.kelamin = kelamin;
+
+//         this.ngobrol = function () {
+
+//         };
+
+//         this.bernyanyi = function (){
+
+//         };
+//    }
+
+    class Pacar {
+
+        constructor(nama, umur, kelamin){
+            this.nama = nama;
+            this.umur = umur;
+            this.kelamin = kelamin;
+        }
+
+        bernyanyi(song = 'Balonku') {
+            console.log(`${this.nama} sedang bernyanyi lagu dengan judul ${song}.`)
+        }
+
+        nonton() {
+
+        }
+
+    }
+
+    let pacar = new Pacar("Cindy", 20, "Female");
+    let pacarDua = new Pacar("Emy", 25, "Female");
+
+    pacar.bernyanyi("My heart will go on")
+</script>
+</body>
+</html>

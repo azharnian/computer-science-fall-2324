@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacar</title>
+</head>
+<body>
+    
+
+    <script>
+        let pacar = {
+            nama : "",
+            umur : "",
+            kelamin : "",
+
+            nonton : () => {
+
+            },
+
+            ngobrol : () => {
+
+            },
+
+            mabar : () => {
+
+            }
+        }
+
+        let Pacar = function(nama, umur, kelamin="Female"){
+            this.name = name;
+            this.umur = umur;
+            this.kelamin = kelamin;
+
+            this.nonton = () => {
+                console.log("Kuy nonton ...");
+            };
+
+            this.ngobrol = () => {
+                console.log(">.<");
+            };
+
+            this.mabar = () => {
+                console.log("Kuy mabar ...");
+            };
+        }
+
+        let pacarSatu = new Pacar("Sylvi", 21);
+
+        pacarSatu.nonton();
+        pacarSatu.ngobrol();
+        pacarSatu.mabar();
+
+        let pacarDua = new Pacar("Cindy", 16);
+
+        pacarDua.nonton();
+        pacarDua.ngobrol();
+        pacarDua.mabar();
+
+        let pacarTiga = new Pacar("Budi", 12, "Male");
+        pacarTiga.kelamin = "Female";
+    </script>
+</body>
+</html>

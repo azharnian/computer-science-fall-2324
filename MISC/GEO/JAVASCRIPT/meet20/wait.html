@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Event Example with Promises</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="myButton">Click me within 3 seconds</button>
+  <p id="result"></p>
+
+  <button id="myYesButton">Yes</button>
+  <button id="myNoButton">No</button>
+  <p id="agreement"></p>
+
+
+  <script>
+
+    let myPromises = new Promise((resolve, reject) => {
+        const button = document.getElementById('myButton');
+
+        button.addEventListener('click', () => {
+          resolve('Button clicked within 3 seconds!');
+        });
+
+        setTimeout(() => {
+          reject('Button not clicked within 3 seconds!');
+        }, 3000);
+      });
+
+    console.log(myPromises);
+
+    myPromises
+        .then((result) => {
+            document.getElementById('result').innerHTML = result;
+            document.querySelector('body').style.backgroundColor = 'green';
+        })
+        .catch((error) => {
+            document.getElementById('result').innerHTML = error;
+            document.querySelector('body').style.backgroundColor = 'red';
+        });
+
+    // myPromises
+    //     .then()
+    //     .catch()
+
+    let mySecondPromise = new Promise((resolve, reject) => {
+        
+        document.getElementById('myYesButton').addEventListener('click', () => {
+            resolve('Yes Button Clicked');
+        })
+        
+        document.getElementById('myNoButton').addEventListener('click', () => {
+            reject('No Button Clicked');
+        })
+        
+    });
+
+    // console.log(mySecondPromise);
+    mySecondPromise
+        .then( result => {
+            alert(result);
+        } )
+        .catch( error => {
+            alert(error);
+        })
+  </script>
+
+</body>
+</html>

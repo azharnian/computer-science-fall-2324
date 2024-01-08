@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 45pt;
+        }
+
+        button {
+            display: inline-block;
+            font-size: 50pt;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Do You Love Me ?</h1>
+    <button>Yes</button>
+
+<script>
+    const timer = setTimeout(() => {
+
+        document.querySelector('h1').innerHTML = "You are still my girl! 🥲";
+        document.querySelector('button').style.display = "none";
+        console.error("Not good!");
+
+    }, 3000);
+
+    document.querySelector("button").addEventListener('click', function(){
+        clearTimeout(timer);
+        document.querySelector('h1').innerHTML = "Thankyou 🩷";
+        document.querySelector('button').style.display = "none";
+    })
+
+
+</script>
+</body>
+</html>

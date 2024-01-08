@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+
+    <p id="content"></p>
+</body>
+<script>
+    let myAjax = new XMLHttpRequest();
+
+    myAjax.onload = function() {
+        // console.log(JSON.parse(this.responseText));
+        const data = JSON.parse(this.responseText);
+        document.getElementById("title").innerHTML = data.title;
+        document.getElementById("content").innerHTML = data.content;
+    };
+
+    myAjax.open("GET", "data.json", true);
+    myAjax.send();
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Splitter</title>
+</head>
+<body>
+
+    <form method="get">
+        <label for="numberInput">Enter a number:</label>
+        <input type="text" id="numberInput" oninput="splitNumber()" maxlength="12">
+        <input type="hidden" id="originalInput" name="numberInput">
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let originalValue = "";
+
+        function splitNumber() {
+            let inputElement = document.getElementById("numberInput");
+            originalValue = inputElement.value.replace(/\D/g, '');
+            let formattedValue = originalValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            inputElement.value = formattedValue;
+            document.getElementById("originalInput").value = originalValue;
+        }
+    </script>
+
+</body>
+</html>
