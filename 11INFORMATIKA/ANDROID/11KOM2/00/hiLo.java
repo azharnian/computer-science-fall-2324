@@ -3,16 +3,21 @@ public class hiLo {
     public static void main(String[] args) {
         
         // System.out.println((int)(Math.random() * 100) + 1); 
-        int randomNumber = (int)(Math.random() * 100) + 1; // 1 s.d. 100
-        System.out.println(randomNumber);
         Scanner scanner = new Scanner(System.in);
 
         String playAgain = "";
         do {
-            int guess = 0;
+            int guess = 0, min = 0, max = 0, counter = 0;
+
+            do {
+
+            } while (max - min < 99);
+
+            int randomNumber = (int)(Math.random() * 100) + 1; // 1 s.d. 100
+            System.out.println(randomNumber);
 
             while (guess != randomNumber){
-            
+
                 System.out.print("Input your number : ");
                 guess = scanner.nextInt();
 
@@ -22,6 +27,7 @@ public class hiLo {
                     System.out.println(guess + " is too high. Try again");
                 else
                     System.out.println("Correct!");
+                counter++;
             }
             System.out.print("Do you want to play again (y/n) ? ");
             playAgain = scanner.next();

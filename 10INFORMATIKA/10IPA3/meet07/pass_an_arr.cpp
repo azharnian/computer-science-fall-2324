@@ -10,6 +10,7 @@ void cout_arr(int len, int *arr){
 
 int main(){
     int numbers[] = {1, 2, 3, 4, 5};
+    // cout_arr(sizeof(numbers) / sizeof(int), &numbers[0]);
     cout_arr(sizeof(numbers) / sizeof(int), numbers);
 
     int scores[] = {90, 98, 97, 100, 60};
