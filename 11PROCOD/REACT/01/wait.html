@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Click me within 3 seconds</button>
+    <p id="result"></p>
+
+    <script>
+        /*
+        const myTimeout = setTimeout(()=>{
+            document.querySelector("#result").innerHTML = "You did't click the button.";
+            document.body.style.backgroundColor = 'red';
+        }, 3000);
+
+        document.querySelector("#myButton").addEventListener('click', () => {
+            clearTimeout(myTimeout);
+            document.querySelector("#result").innerHTML = "Thank you.";
+            document.body.style.backgroundColor = 'green';
+        })
+        */
+
+        const myPromise = new Promise((resolve, reject) => {
+                const button = document.getElementById('myButton');
+                button.addEventListener('click', () => {
+                    resolve('Thank you.');
+                });
+                setTimeout(() => {
+                    reject("You didn't click the button.");
+                }, 3000);
+        })
+
+        console.log(myPromise);
+
+        myPromise
+            .then(result => {
+                document.getElementById('result').innerHTML = result;
+                document.body.style.backgroundColor = 'green';
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = error;
+                document.body.style.backgroundColor = 'red';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pokemon</title>
+</head>
+<body>
+    <div class="card">
+        <h1 id="name"></h1>
+        <img src="" alt="" id="image1">
+    </div>
+
+    <script>
+        let pokemon;
+
+        let updateCard = () => {
+            document.getElementById("name").innerHTML = pokemon.name;
+            document.getElementById("image1").src = pokemon.sprites.front_default;
+        }
+
+        fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+            .then(result => {
+                return result.json();
+            })
+            .then(data => {
+                pokemon = data;
+                updateCard();
+            })
+
+    </script>
+</body>
+</html>

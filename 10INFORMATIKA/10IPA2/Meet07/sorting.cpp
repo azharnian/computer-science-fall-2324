@@ -6,12 +6,12 @@ using namespace std;
 
 int main() {
     int my_array[] = {4, 2, 7, 1, 5};
-    int arraySize = sizeof(my_array) / sizeof(my_array[0]);
-    sort(my_array, my_array + arraySize);
+    int array_size = sizeof(my_array) / sizeof(my_array[0]);
+    sort(my_array, my_array + array_size);
     // sort(&my_array[0], &my_array[5]);
 
     cout << "Sorted Array:" << endl;
-    for (int i = 0; i < arraySize; ++i) {
+    for (int i = 0; i < array_size; ++i) {
         cout << my_array[i] << " ";
     }
     cout << endl;
