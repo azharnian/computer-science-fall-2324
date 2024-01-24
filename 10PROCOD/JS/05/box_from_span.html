@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxes</title>
+    <style>
+        .special {
+            font-style: italic;
+            color: red;
+            text-decoration: line-through;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+
+        div {
+
+            background-color: yellowgreen;
+        }
+
+        span {
+            display: block;
+            background-color: magenta;
+        }
+
+        a {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit <i>amet</i> consectetur adipisicing elit. Aut, blanditiis!
+    </p>
+    <p>
+        Lorem ipsum dolor sit <em>amet</em> consectetur adipisicing elit. Aut, blanditiis!
+    </p>
+    <p>
+        Lorem ipsum dolor sit <span class="special">amet</span> consectetur adipisicing elit. Aut, blanditiis!
+    </p>
+
+    <div class="box"></div>
+    <span class="box"></span>
+
+    <a href="https://www.google.com/">Google</a>
+    <a href="https://www.yahoo.com">Yahoo</a>
+</body>
+</html>
