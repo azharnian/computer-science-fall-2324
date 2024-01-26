@@ -27,11 +27,17 @@
     // document.getElementById("content").innerHTML = template({ doesWhat: "rocks!" });
 
     let cardTemplate = Handlebars.compile(`
+        {{#each pokemons}}
         <div class="card">
             <h1 id="title">{{ title }}</h1>
             <p class="text">{{ text }}</p>
-            <img id="image" src="{{ imgUrl }}" alt="">
+            {{#if imgUrl}}
+                <img id="image" src="{{ imgUrl }}" alt="">
+            {{else}}
+                <p>No Image</p>
+            {{/if}}
         </div>
+        {{/each}}
     `);
 
     let cardTemplate2 = Handlebars.compile(document.getElementById("cardTemplate").innerHTML)
@@ -42,25 +48,25 @@
         imgUrl : ""
     };
     
-    let infos = [
-        {
-            title : "The Best",
-            text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
-            imgUrl : ""
-        },
-        {
-            title : "The Best of The Best",
-            text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
-            imgUrl : ""
-        }
-    ]
+    let infos = {
+        "pokemons" :  [
+            {
+                title : "The Best",
+                text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
+                imgUrl : "https://static.miraheze.org/loathsomecharacterswiki/thumb/f/f6/C--Users-cleme-Downloads-527-5274029_patrick-star-clipart-patrick-star-drooling-png-download.png/300px-C--Users-cleme-Downloads-527-5274029_patrick-star-clipart-patrick-star-drooling-png-download.png"
+            },
+            {
+                title : "The Best of The Best",
+                text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
+                imgUrl : ""
+            }
+        ]
+    }
 
-    // document.getElementById("content").innerHTML = cardTemplate(cardInfo);
-    document.getElementById("content").innerHTML = cardTemplate2(cardInfo);
+    // // document.getElementById("content").innerHTML = cardTemplate(cardInfo);
+    // document.getElementById("content").innerHTML = cardTemplate2(cardInfo);
 
-    infos.forEach( info => {
-        document.getElementById("content").innerHTML = cardTemplate2(info);
-    })
+    document.getElementById("content").innerHTML = cardTemplate(infos);
 
 
     </script>
