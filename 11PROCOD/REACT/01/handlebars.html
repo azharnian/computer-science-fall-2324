@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars</title>
+</head>
+<body>
+
+    <div id="content"></div>
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script id="cardTemplate" type="text/x-handlebars-template">
+        <div class="card">
+            <h1 id="title">{{ title }}</h1>
+            <p class="text">{{ text }}</p>
+            <img id="image" src="{{ imgUrl }}" alt="">
+        </div>
+    </script>
+
+    <script>
+    // compile the template
+    var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+    // execute the compiled template and print the output to the console
+    // console.log(template({ doesWhat: "rocks!" }));
+    // document.getElementById("content").innerHTML = template({ doesWhat: "rocks!" });
+
+    let cardTemplate = Handlebars.compile(`
+        <div class="card">
+            <h1 id="title">{{ title }}</h1>
+            <p class="text">{{ text }}</p>
+            <img id="image" src="{{ imgUrl }}" alt="">
+        </div>
+    `);
+
+    let cardTemplate2 = Handlebars.compile(document.getElementById("cardTemplate").innerHTML)
+
+    let cardInfo = {
+        title : "The Best",
+        text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
+        imgUrl : ""
+    };
+    
+    let infos = [
+        {
+            title : "The Best",
+            text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
+            imgUrl : ""
+        },
+        {
+            title : "The Best of The Best",
+            text : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab voluptates asperiores molestiae consequuntur laboriosam voluptatibus cum assumenda quidem ea!",
+            imgUrl : ""
+        }
+    ]
+
+    // document.getElementById("content").innerHTML = cardTemplate(cardInfo);
+    document.getElementById("content").innerHTML = cardTemplate2(cardInfo);
+
+    infos.forEach( info => {
+        document.getElementById("content").innerHTML = cardTemplate2(info);
+    })
+
+
+    </script>
+    
+</body>
+</html>
