@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script>
+        let cardTemplate = Handlebars.compile(`
+            {{#each articles}}
+            <h1 class="title">{{ title }}</h1>
+            <p class="description">{{ description }}</p>
+            {{/each}}
+        `);
+
+        let data = {
+            title : "The best",
+            description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto facere consequuntur illum voluptates rerum, aperiam et nam perferendis eum nulla."
+        }
+
+        let datas = {
+            articles : [
+                {
+                    title : "The best",
+                    description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto facere consequuntur illum voluptates rerum, aperiam et nam perferendis eum nulla."
+                },
+                {
+                    title : "The best of the best",
+                    description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto facere consequuntur illum voluptates rerum, aperiam et nam perferendis eum nulla."
+                }
+            ]
+        }
+
+        document.getElementById("content").innerHTML = cardTemplate(datas);
+
+    </script>
+</body>
+</html>

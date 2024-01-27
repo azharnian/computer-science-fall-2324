@@ -19,14 +19,28 @@
             document.getElementById("image1").src = pokemon.sprites.front_default;
         }
 
-        fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-            .then(result => {
-                return result.json();
-            })
-            .then(data => {
-                pokemon = data;
+        async function getPokemon(item){
+            try {
+                let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${item}`);
+                pokemon = await data.json();
+                // console.log(data.json());
                 updateCard();
-            })
+            } catch (error) {
+                console.error("Error : ",error);
+            }
+            
+        }
+
+        getPokemon("charmander");
+
+        // fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        //     .then(result => {
+        //         return result.json();
+        //     })
+        //     .then(data => {
+        //         pokemon = data;
+        //         updateCard();
+        //     })
 
     </script>
 </body>
