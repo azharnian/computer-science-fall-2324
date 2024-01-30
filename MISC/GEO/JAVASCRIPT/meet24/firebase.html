@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDHd-FQUKP3CKxeil80WaxOinoWxriqHKA",
+        authDomain: "geo-project-53a13.firebaseapp.com",
+        databaseURL: "https://geo-project-53a13-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "geo-project-53a13",
+        storageBucket: "geo-project-53a13.appspot.com",
+        messagingSenderId: "1008723845869",
+        appId: "1:1008723845869:web:b58c6b757dfbae21c262e4"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    async function getDataFirebase(){
+        const result = await fetch("https://geo-project-53a13-default-rtdb.asia-southeast1.firebasedatabase.app/groceries.json");
+
+        const data = await result.json();
+        console.log(data);
+    }
+
+    getDataFirebase();
+    </script>
+</body>
+</html>
