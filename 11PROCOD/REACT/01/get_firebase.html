@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #container {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        }
+
+        #container .card {
+          width: 200px;
+          height: 200px;
+          border-radius: 20px;
+          background-color: yellowgreen;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
+        #container .card ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
+
+        div.card.loading {
+          background-image: url("Spinner.gif");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script id="loadingIndicator" type="text/x-handlebars-template">
+      {{#each gadgets}}
+      <div class="card loading"></div>
+      {{/each}}
+    </script>
+    <script id="card" type="text/x-handlebars-template">
+        {{#each gadgets}}
+        <div class="card">
+            <h1 class="title">Gadget</h1>
+            <ul>
+                <li>Merk : {{ merk }}</li>
+                <li>Model : {{ model }}</li>
+                <li>Price : {{ price }}</li>
+            </ul>
+        </div>
+        {{/each}}
+    </script>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
+
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
+
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+        
+        const firebaseConfig = {
+          //  CONTAIN API CONFIG FROM FIREBASE
+        };
+      
+        const app = initializeApp(firebaseConfig);
+
+        async function getFabsGadgets(){
+          let data = null;
+          let container = document.getElementById("container");
+          let loadingIndicatorTemplate = Handlebars.compile(document.getElementById("loadingIndicator").innerHTML);
+          container.innerHTML = loadingIndicatorTemplate({gadgets : [0, 1, 2]});
+
+          try {
+              let result = await fetch("https://fabian-project-1afc4-default-rtdb.asia-southeast1.firebasedatabase.app/gadgets.json");
+              data = await result.json();
+          } catch (error) {
+              console.error(error);
+          } finally {
+              container.innerHTML = "";
+              return data;
+          }         
+        }
+        
+        let devices = {     
+           gadgets : await getFabsGadgets()
+        }
+        // console.log(devices);
+
+        let cardTemplate = Handlebars.compile(document.getElementById("card").innerHTML);
+
+        document.getElementById("container").innerHTML = cardTemplate(devices);
+      </script>
+
+</body>
+</html>

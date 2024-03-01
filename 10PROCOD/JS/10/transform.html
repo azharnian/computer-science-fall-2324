@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            background-color: salmon;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            padding: 50px;
+        }
+
+        .box {
+            width: 180px;
+            height: 280px;
+            background-color: yellow;
+        }
+
+        .one {
+            background-color: aquamarine;
+        }
+
+        .one:hover {
+            background-color: aquamarine;
+            /* transform: translateX(100px) translateY(200px); */
+            transform: translate(100px, 200px);
+            transition-duration: 2s;
+        }
+
+        .two {
+            background-color: antiquewhite;
+        }
+
+        .two:hover {
+            background-color: antiquewhite;
+            transform-origin: bottom right;
+            transform: rotate(90deg);
+            transition-duration: 2s;
+        }
+
+        .three {
+            background-color: white;
+        }
+
+        .three:hover {
+            background-color: white;
+            transform: scale(0.5);
+            transition-duration: 2s;
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box one"></div>
+        <div class="box two"></div>
+        <div class="box three"></div>
+        <div class="box four"></div>
+        <div class="box five"></div>
+    </div>
+</body>
+</html>

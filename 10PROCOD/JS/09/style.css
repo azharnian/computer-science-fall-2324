@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+header nav {
+    height: 80px;
+    display: flex;
+    background-color: yellowgreen;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav a {
+    display: inline-block;
+    background-color: salmon;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+section.hero {
+    background-color: salmon;
+    height: calc(100vh - 80px);
+    padding: 40px 80px 80px;
+}
+
+section.hero .container {
+    display: flex;
+    background-color: yellow;
+    height: 100%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+section.hero .container .left {
+    width: 60%;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+section.hero .container .left .bottom .socials a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+    color: black;
+}
+
+section.hero .container .right {
+    width: 40%;
+    height: 100%;
+    background-color: bisque;
+    background-image: url("assets/mr_crab.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+

@@ -3,11 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Firebase and Handlebars</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #root {
+            min-height: 100vh;
+            min-width: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: salmon;
+            padding: 10px;
+        }
+
+        .card.loading {
+            background-image: url("Dual\ Ball-1s-200px.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .card p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script id="loadingIndicator" type="text/x-handlebars-template">
+        {{#each items}}
+        <div class="card loading"></div>
+        {{/each}}
+    </script>
+
+    <script id="card" type="text/x-handlebars-template">
+        {{#each items}}
+        <div class="card">
+            <div class="circle"></div>
+            <p>item : {{item}}</p>
+            <p>numbers : {{numbers}}</p>
+        </div>
+        {{/each}}
+    </script>
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
         import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
@@ -28,13 +82,26 @@
     const app = initializeApp(firebaseConfig);
 
     async function getDataFirebase(){
-        const result = await fetch("https://geo-project-53a13-default-rtdb.asia-southeast1.firebasedatabase.app/groceries.json");
+        let data;
+        const loadingIndicatorTemplate = Handlebars.compile(document.getElementById("loadingIndicator").innerHTML);
+        document.getElementById("root").innerHTML = loadingIndicatorTemplate({items : [0, 1, 2, 3]});
+        try {
+            const result = await fetch("https://geo-project-53a13-default-rtdb.asia-southeast1.firebasedatabase.app/groceries.json");
 
-        const data = await result.json();
-        console.log(data);
+            data = await result.json();
+        } catch (error) {
+            console.error(error);
+        } finally {
+            return data;
+        }
     }
 
-    getDataFirebase();
+    const data = {
+        items : await getDataFirebase()
+    }
+
+    const cardTemplate = Handlebars.compile(document.getElementById("card").innerHTML);
+    document.getElementById("root").innerHTML = cardTemplate(data);
     </script>
 </body>
 </html>

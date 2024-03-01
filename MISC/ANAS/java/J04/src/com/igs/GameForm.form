@@ -15,6 +15,7 @@
           <component id="7bf93" class="javax.swing.JLabel">
             <constraints border-constraint="South"/>
             <properties>
+              <font swing-font="CheckBoxMenuItem.acceleratorFont"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
               <text value="Guessing Number Game"/>

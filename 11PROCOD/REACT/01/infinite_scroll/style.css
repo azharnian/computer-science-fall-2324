@@ -1,0 +1,291 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: rgb(227,227,227);
+    background: linear-gradient(66deg, rgb(230, 251, 254) 0%, rgb(237, 221, 251) 100%);
+}
+
+header {
+    display: flex;
+    padding: 0px 50px;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    position: sticky;
+    top: 0;
+}
+
+header > nav {
+    width: 20%;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a.header-nav-item {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+span.logo {
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-size: 40px;
+}
+
+span#menu {
+    display: inline-block;
+    width: 20%;
+    text-align: right;
+    font-size: 30px;
+    /* cursor: pointer; */
+}
+
+main {
+    min-height: calc(100vh - 80px - 100px);
+    background-color: white;
+    margin-top: 100px;
+    padding: 40px 0px 0px 0px;
+}
+
+main  > #content {
+    float: left;
+    min-height: 800px;
+    width: 70%;
+}
+
+article#content {
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.card {
+    display: flex;
+    width: 370px;
+    height: 200px;
+    background-color: rgba(203, 232, 245, 0.817);
+    border-radius: 10px;
+    padding: 30px;
+    align-items: center;
+    transition: transform 0.3s ease;
+    animation: bounce 0.3s;
+}
+
+div.card:hover {
+    transform: scale(1.05);
+}
+
+div.card > div.left {
+    width: 150px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+div.card > div.right {
+    width: 100%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1.poke-name {
+    letter-spacing: 2px;
+    text-align: left;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+a.poke-api {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(237, 221, 251);
+    width: fit-content;
+    padding: 3px 5px;
+
+
+}
+
+main > aside {
+    float: right;
+    width: 25%;
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+
+}
+
+div.profile-card {
+    width: 80%;
+    background-color: rgba(203, 232, 245, 0.817);
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border-radius: 10px;
+    padding: 30px;
+    
+}
+
+div.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: rgba(203, 232, 245, 0.817);
+    background-image: url('assets/anas-memoji.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+img {
+    width: 200px;
+}
+
+div.profile-info {
+    text-align: center;
+}
+
+div.socials > a.icon {
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    margin: 10px 10px;
+}
+
+footer {
+    height: 60px;
+    line-height: 60px;
+}
+
+footer > p {
+    text-align: center;
+    background-color: white;
+}
+
+@keyframes bounce {
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    article {
+        display: none;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    main > #content {
+        float: none;
+    }
+    main > aside {
+        float: none;
+        position: static;
+        height: fit-content;
+        width: 80%;
+
+    }
+
+    div.card {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 767px) {
+    article {
+        display: none;
+    }
+
+    header {
+        padding: 0px 10px;
+        justify-content: space-between;
+        gap: 20px;
+        background-color: rgb(206, 204, 204);
+    }
+
+    span#menu {
+        width: fit-content;
+    }
+
+    span#menu::after {
+        content: '📝';
+    }
+
+    header > nav {
+        display: none;
+    }
+
+    span.logo {
+        font-size: 30px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 0;
+    }
+    main > #content {
+        float: none;
+    }
+    main > aside {
+        float: none;
+        position: static;
+        height: fit-content;
+        width: 80%;
+
+    }
+
+    div.card {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    div.card > div.left {
+        width: 100px;
+    }
+    
+    div.card > div.right {
+        padding-left: 0px;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    h1.poke-name {
+        font-size: 20px;
+    }
+
+    div.profile-card {
+        margin: 10px auto;
+        gap: 20px;
+        background-color: white;
+    }
+
+
+}

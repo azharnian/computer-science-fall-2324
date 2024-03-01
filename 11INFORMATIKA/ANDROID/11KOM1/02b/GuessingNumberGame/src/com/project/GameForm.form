@@ -15,15 +15,15 @@
           <component id="6590d" class="javax.swing.JLabel" binding="TitleLabel">
             <constraints border-constraint="Center"/>
             <properties>
-              <font size="18"/>
+              <font name="Courier New" size="18"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
               <text value="Guessing Number Game"/>
             </properties>
           </component>
-          <vspacer id="f7d5a">
+          <hspacer id="8f319">
             <constraints border-constraint="North"/>
-          </vspacer>
+          </hspacer>
         </children>
       </grid>
       <grid id="d6d0e" binding="ContentPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -63,7 +63,16 @@
               <component id="87160" class="javax.swing.JButton" binding="SubmitBtn">
                 <constraints border-constraint="Center"/>
                 <properties>
+                  <font size="14" style="1"/>
                   <text value="Submit"/>
+                </properties>
+              </component>
+              <component id="942ea" class="javax.swing.JLabel" binding="MessageLabel">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <text value="Enter a number above and click submit."/>
                 </properties>
               </component>
             </children>
@@ -76,17 +85,17 @@
               <text value="Copyright 2024 Made by Joko"/>
             </properties>
           </component>
-          <vspacer id="2031f">
-            <constraints border-constraint="Last"/>
-          </vspacer>
+          <hspacer id="77c2b">
+            <constraints border-constraint="South"/>
+          </hspacer>
         </children>
       </grid>
-      <hspacer id="ddf09">
+      <vspacer id="8aff8">
         <constraints border-constraint="West"/>
-      </hspacer>
-      <hspacer id="4e2bf">
+      </vspacer>
+      <vspacer id="1fbe6">
         <constraints border-constraint="East"/>
-      </hspacer>
+      </vspacer>
     </children>
   </grid>
 </form>

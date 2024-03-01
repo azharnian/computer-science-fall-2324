@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using FR</title>
+    <style>
+        .item1 { grid-area: head; }
+        .item2 { grid-area: head2; }
+        .item3 { grid-area: side; }
+        .item4 { grid-area: main; }
+        .item5 { grid-area: main2; }
+        .item6 { grid-area: footer; }
+
+        .container {
+            background-color: salmon;
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-rows: 100px 200px 100px;
+
+            grid-template-areas:
+                    "head head2 . side"
+                    "main main2 . side"
+                    "footer footer footer footer";
+            gap: 5px;
+        }
+
+        .container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">head</div>
+        <div class="item2">head2</div>
+        <div class="item3">side</div>  
+        <div class="item4">main</div>
+        <div class="item5">main2</div>
+        <div class="item6">footer</div>
+    </div> 
+</body>
+</html>

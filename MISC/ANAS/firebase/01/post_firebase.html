@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post into Firebase</title>
+</head>
+<body>
+    <form id="itemForm">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+        <button type="button" onclick="postItem()">Post Item</button>
+    </form>  
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
+
+        import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js'
+
+        async function getConfig(){
+            let res = await fetch("./env.json");
+            let data = await res.json();
+            return data
+        }
+
+        const firebaseConfig = await getConfig();
+        const app = initializeApp(firebaseConfig);
+
+
+    </script>   
+</body>
+</html>

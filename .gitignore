@@ -6,6 +6,7 @@ dsEnv/
 ds-env/
 webEnv/
 *.mp4
+env.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

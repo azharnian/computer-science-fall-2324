@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoint</title>
+    <style>
+
+        @media screen and (max-width : 600px) {
+            body {
+                background-color: yellowgreen;
+            }  
+            h1 {
+                text-align: left;
+                font-size: 14px;
+                text-transform: capitalize;
+            } 
+            div.circle {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width : 601px) {
+            body {
+                background-color: blueviolet;
+            }
+            
+            div.circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                background-color: white;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (min-width : 801px ){
+            body {
+                background-color: salmon;
+            }
+            h1 {
+                text-align: center;
+                font-size: 40px;
+                text-transform: uppercase;
+            }
+
+            div.circle {
+                width: 300px;
+                height: 300px;
+                border-radius: 150px;
+                background-color: black;
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hello world!</h1>
+    <div class="circle"></div>
+</body>
+</html>

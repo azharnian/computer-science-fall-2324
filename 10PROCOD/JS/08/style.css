@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: salmon;
+}
+
+div.container {
+    width: 80%;
+    min-height: 100vh;
+    background-color: greenyellow;
+    margin: 0px auto;
+
+}
+
+div.container header.header-container {
+    background-color: blueviolet;
+    height: 70px;
+    line-height: 70px;
+    padding: 0px 20px;
+}
+
+div.container header nav.top {
+    background-color: whitesmoke;
+    width: fit-content;
+}
+
+div.container header nav.top a {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-right: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+div.container section.hero {
+    height: 400px;
+    background-color: yellow;
+    text-align: center;
+    padding-top: 120px;
+}
+
+h1.title-hero, h3.sub-title-hero {
+    margin-bottom: 10px;
+}
+
+a.sign-up-btn {
+    display: inline-block;
+    height: 48px;
+    padding: 0 25px;
+    background-color: lightcyan;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    line-height: 48px;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+
+div.container section.content {
+    background-color: magenta;
+}
+
+div.container section.content article {
+    float: left;
+    width: 70%;
+    min-height: 800px;
+    background-color: white;
+}
+
+div.container section.content article header.header-article {
+    background-color: bisque;
+    padding: 15px 0;
+}
+
+div.container section.content article header.header-article h1 {
+    font-size: 24pt;
+}
+
+div.container section.content article header.header-article p {
+    margin-top: 5px;
+    font-style: italic;
+}
+
+div.container section.content article section.article img {
+    width: 100px;
+    float: left;
+}
+
+div.container section.content article section.article p {
+    text-indent: 45px;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+div.container section.content aside {
+    float: right;
+    width: 20%;
+    min-height: inherit;
+    background-color: white;
+}
+
