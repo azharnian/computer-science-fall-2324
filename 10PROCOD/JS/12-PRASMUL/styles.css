@@ -9,7 +9,7 @@ body {
     font-weight: 400;
     font-style: normal;
     min-height: 200vh;
-    background-color: salmon;
+    background-color: #00376a;
 }
 
 .container {
@@ -25,18 +25,22 @@ body {
 
 header .container {
     justify-content: space-between;
+    height: 60px;
+    background-color: #00376a;
 }
 
 header .container .nav-header {
-    width: 60%;
+    width: 490px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header .container a{
+    font-size: 13px;
     text-transform: capitalize;
     text-decoration: none;
+    color: gray;
 }
 
 header .container .nav-header a.btn{
@@ -45,6 +49,46 @@ header .container .nav-header a.btn{
     color: white;
     font-weight: bold;
     padding: 0 5px;
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    width: 120px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* STICKY NAV */
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+nav .container {
+    justify-content: space-between;
+    height: 91px;
+    background-color: white;
+}
+
+nav .container ul.sticky-nav li.item{
+    display: inline-block;
+    list-style: none;
+    font-size: 13px;
+    margin-left: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+/* SECTION HERO */
+section.hero {
+    height: calc(100vh - 60px - 91px);
+    background-color: yellowgreen;
+    background-image: url('assets/hero-01.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+section.hero .container {
+    background-color: rgba(255, 255, 255, 0);
 }
