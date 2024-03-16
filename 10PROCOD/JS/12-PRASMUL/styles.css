@@ -62,6 +62,7 @@ nav {
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 999;
 }
 
 nav .container {
@@ -91,4 +92,85 @@ section.hero {
 
 section.hero .container {
     background-color: rgba(255, 255, 255, 0);
+}
+
+/* SECTION FACULTY */
+
+section.faculty {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 255px;
+    background-color: salmon;
+    gap: 10px;
+    padding: 10px;
+}
+
+section.faculty div.item-faculty {
+    background-color: #00376a;
+}
+
+/* SECTION ABOUT */
+
+section.about {
+    height: 1000px;
+    background-color: #00376a;
+}
+
+/* SECTION FLOATING IMG */
+
+section.floating-img {
+    position: relative;
+    top: 50px;
+    height: 190px;
+    width: 80%;
+    background-color: salmon;
+    margin: 0 auto;
+    z-index: 998;
+}
+
+/* SECTION VIDEO UNI */
+
+section.video-uni {
+    position: relative;
+    height: 673px;
+    background-color: yellowgreen;
+}
+
+section.video-uni .container.video-text {
+    height: 100%;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+section.video-uni .container.text {
+    position: absolute;
+    height: 673px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+/* FOOTER */
+
+footer section.nav-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    width: 70px;
+    height: 150px;
+    font-size: 40px;
+    padding: 5px;
+}
+
+footer section.nav-buttons a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
 }
