@@ -1,0 +1,162 @@
+{
+    "main": {
+        "name" : "Anas Azhar",
+        "description": "",
+        "image":"",
+        "github":"",
+        "project":"",
+        "bio": "",
+        "contactmessage":"",
+        "email": "",
+        "phone": "",
+        "address":{
+            "street":"",
+            "city":"",
+            "state":"",
+            "zip": ""
+        },
+        "website": "",
+        "resumedownload":"",
+        "social":[
+          {
+            "name": "facebook",
+            "url": "",
+            "className": "fa fa-facebook"
+          },
+          {
+            "name":"twitter",
+            "url":"",
+            "className":"fa fa-twitter"
+          },
+          {
+            "name":"linkedin",
+            "url":"",
+            "className":"fa fa-linkedin"
+          },
+          {
+            "name":"instagram",
+            "url":"",
+            "className":"fa fa-instagram"
+          },
+          {
+            "name":"github",
+            "url":"",
+            "className":"fa fa-github"
+          }
+        ]
+    },
+    "resume" : {
+        "skillmessage":"Here you can create a short write-up of your skills to show off to employers",
+        "education" : [
+            {
+                "school": "",
+                "degree": "",
+                "graduated": "",
+                "description" : ""
+            },
+            {
+                "school": "",
+                "degree": "",
+                "graduated": "",
+                "description": ""
+            }
+        ],
+        "work": [
+            {
+                "company" : "",
+                "title" : "",
+                "years": "",
+                "description": ""
+            }, {
+                "company": "",
+                "title": "",
+                "years": "",
+                "description": ""
+            }
+        ],
+        "skills": [
+            {
+                "name" : "",
+                "level": ""
+            },
+            {
+                "name": "",
+                "level": ""
+            },
+            {
+                "name": "",
+                "level": ""
+            },
+            {
+                "name": "",
+                "level": ""
+            },
+            {
+                "name": "",
+                "level": ""
+            },
+            {
+                "name": "",
+                "level": ""
+            }
+        ]
+    },
+    "portfolio":{
+        "projects": [
+            {
+                "title": "",
+                "category": "",
+                "image": "",
+                "url": ""
+            },
+            {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              },
+              {
+                "title":"",
+                "category":"",
+                "image":"",
+                "url":""
+              }
+        ]
+    }
+}

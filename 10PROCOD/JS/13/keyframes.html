@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyframes</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        @keyframes myAnimation {
+            from {
+                /* transform: translateX(0); */
+                top: 100px;
+                left: 100px;
+            }
+
+            to {
+                /* transform: translateX(200px); */
+                top: 100px;
+                left: 300px;
+            }
+        }
+
+        @keyframes my2ndAnimation {
+            0% {
+                top: 30px;
+                left: 30px;
+                background-color: red;
+            }
+            25% {
+                top: 30px;
+                left: calc(100% - 30px - 50px);
+                background-color: purple;
+            }
+            50% {
+                top: calc(100vh - 30px - 50px);
+                left: calc(100% - 30px - 50px);
+                background-color: blue;
+            }
+            75% {
+                top: calc(100vh - 30px - 50px);
+                left: 30px;
+                background-color: pink;
+            }
+            100% {
+                top: 30px;
+                left: 30px;
+                background-color: orange;
+            }
+        }
+        div.box {
+            position: relative;
+            height: 50px;
+            width: 50px;
+            background-color: salmon;
+            /* top: 200px;
+            left: 100px; */
+            animation: my2ndAnimation;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

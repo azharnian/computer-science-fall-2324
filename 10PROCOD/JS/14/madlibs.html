@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlibs</title>
+</head>
+<body>
+    <h1>
+        Star Wars is a <span id="one"> ? </span> <span id="two"> ? </span>.
+    </h1>
+
+    <script>
+        let adjectives = [];
+        let animals = ["cat", "dog", "duck", "lizard"];
+        let randomIndex = Math.floor(Math.random()*animals.length);
+        // console.log(animals[randomIndex]);
+        document.getElementById("two").innerHTML = animals[randomIndex];
+    </script>
+</body>
+</html>
