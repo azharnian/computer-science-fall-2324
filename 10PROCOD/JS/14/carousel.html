@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        div.carousel {
+            width: 400px;
+            height: 200px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: salmon;
+            border: 10px solid black;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel"></div>
+    <div class="btn-group">
+        <button id="nextBtn">next</button>
+    </div>
+</body>
+<script>
+    const images = [
+        "assets/anas-memoji.png",
+        "assets/mr_crab.png",
+        "assets/patrick.jpeg"
+    ]
+
+    let index = 0;
+    let carouselEl = document.querySelector(".carousel");
+    carouselEl.style.backgroundImage = `url('${images[index]}')`;
+
+    document.getElementById("nextBtn").addEventListener('click', ()=>{
+        index++;
+        carouselEl.style.backgroundImage = `url('${images[index]}')`;
+    })
+</script>
+</html>
