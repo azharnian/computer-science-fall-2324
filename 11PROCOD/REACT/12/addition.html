@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN Example</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // const { useState } = React;
+
+    function AdditionQuiz(){
+        const [num1, setNum1] = React.useState(Math.floor(Math.random() * 100));
+        const [num2, setNum2] = React.useState(Math.floor(Math.random() * 100));
+        const [userAnswer, setUserAnswer] = React.useState('');
+        const [score, setScore] = React.useState(0);
+
+        const handleInputChange = (event) => {
+            setUserAnswer(event.target.value);
+        };
+
+        // console.log(userAnswer);
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            const answer = parseInt(userAnswer);
+            if (answer === num1 + num2) {
+                setScore(score + 1);
+                setNum1(Math.floor(Math.random() * 100));
+                setNum2(Math.floor(Math.random() * 100));
+                setUserAnswer('');
+            } else {
+                setNum1(Math.floor(Math.random() * 100));
+                setNum2(Math.floor(Math.random() * 100));
+                setUserAnswer('');
+            }
+        };
+
+        return (
+            <div>
+                <h2>Addition Calculation Quiz</h2>
+                <p>Score: {score}</p>
+                <form onSubmit={handleSubmit}>
+                    <p>
+                    What is {num1} + {num2} ?
+                    </p>
+                    <input
+                        type="number"
+                        value={userAnswer}
+                        onChange={handleInputChange}
+                        placeholder="Your answer"
+                        required
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        )
+    }
+
+    const App = () => {
+        return(
+            <>
+                <AdditionQuiz />
+            </>
+        )
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember Counter</title>
+    <script>
+        let number;
+        if (!localStorage.getItem('number')){
+            localStorage.setItem('number', 0);
+        } 
+        number = JSON.parse(localStorage.getItem('number'));
+
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            // let number = 0;
+            const textH1 = document.getElementById("number");
+
+            textH1.innerHTML = number;
+
+            document.querySelectorAll("button").forEach( button => {
+                button.addEventListener("click", function() {
+                    // console.log(this.dataset.btn);
+                    if (this.dataset.btn === "increase"){
+                        number++;
+                    } else {
+                        number--;
+                    }
+                    localStorage.setItem('number', number);
+                    textH1.innerHTML = number;
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1 id="number"></h1>
+    <button data-btn="decrease">Decrease</button>
+    <button data-btn="increase">Increase</button>
+</body>
+</html>

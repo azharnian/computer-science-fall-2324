@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN Example</title>
+
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    section.coral {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const App = () => {
+
+      const h2Style = {
+        backgroundColor : "yellowgreen", 
+        fontFamily : "sans-serif"
+      }
+    
+      return (
+        <section className="coral">
+            <h1>Hello, react!</h1>
+            <h2 style={ h2Style }>Hello, my-react</h2>
+        </section>
+        
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
