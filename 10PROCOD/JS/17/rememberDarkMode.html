@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <style>
+        body {
+            transition: ease-in 1s;
+            color: black;
+        }
+
+        body.dark {
+            background-color: rgb(73, 73, 73);
+            color: white;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 80px;
+            font-size: 50px;
+            background-color: rgb(73, 73, 73);
+        }
+
+        .circle.dark {
+            background-color: whitesmoke;
+        }
+
+        .circle span#icon::after {
+            content: "☀️";
+        }
+
+        .circle span#icon.dark::after {
+            content: "🌑";
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <span id="icon"></span>
+    </div>
+
+    <h1>Hello, world!</h1>
+<script>
+
+    let dark;
+    if (!localStorage.getItem('dark'))
+        localStorage.setItem('dark', false);
+    dark = JSON.parse(localStorage.getItem('dark'));
+
+    const icon = document.getElementById("icon");
+    const circle = document.querySelector('.circle');
+
+    if (dark){
+        icon.classList.add('dark');
+        circle.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+    icon.addEventListener('click', function(){
+        this.classList.toggle('dark');
+        circle.classList.toggle('dark');
+        document.body.classList.toggle('dark');
+        dark = !dark;
+        localStorage.setItem('dark', dark);
+    })
+
+    /* icon.addEventListener('click', () => {
+        icon.classList.toggle('dark');
+    }) */
+</script>
+</body>
+</html>
