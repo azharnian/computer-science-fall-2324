@@ -55,16 +55,16 @@
     const icon = document.getElementById("icon");
     const circle = document.querySelector('.circle');
 
-    if (dark){
-        icon.classList.add('dark');
-        circle.classList.add('dark');
-        document.body.classList.add('dark');
-    }
-
-    icon.addEventListener('click', function(){
-        this.classList.toggle('dark');
+    function darkToggle(){
+        icon.classList.toggle('dark');
         circle.classList.toggle('dark');
         document.body.classList.toggle('dark');
+    }
+    if (dark){
+        darkToggle()
+    }
+    icon.addEventListener('click', function(){
+        darkToggle();
         dark = !dark;
         localStorage.setItem('dark', dark);
     })

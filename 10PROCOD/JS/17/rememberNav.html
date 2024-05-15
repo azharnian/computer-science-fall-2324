@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember Nav</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: salmon;
+        }
+
+        header {
+            position: relative;
+            height: 80px;
+            background-color: yellowgreen;
+            padding: 5px;
+        }
+
+        header nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            background-color: darkblue;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        header nav.show {
+            display: flex;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 30px;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header nav a#exit-btn{
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            line-height: 40px;
+            text-align: center;
+            border: 3px white solid;
+        }
+
+        header span.menu {
+            display: block;
+            text-align: right;
+            /* background-color: aqua; */
+            font-size: 70px;
+            line-height: 70px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="nav-menu">
+            <a href="#">home</a>
+            <a href="#">blog</a>
+            <a href="#">about</a>
+            <a href="" id="exit-btn">x</a>
+        </nav>
+
+        <span class="menu" id="menu">🍔</span>
+    </header>
+</body>
+<script>
+    function setCookie(name, value, dayToLive){
+        const date = new Date();
+        date.setTime(date.getTime() + dayToLive * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = `${name}=${value}; ${expires}; path=/`;
+    }
+
+    function deleteCookie(name){
+        setCookie(name, null, null);
+    }
+
+    function getCookie(name){
+        const cookieDecoded = decodeURIComponent(document.cookie);
+        const cookieArr = cookieDecoded.split("; ");
+        let result = null;
+
+        cookieArr.forEach(element => {
+            if (element.indexOf(name) === 0){
+                result = element.substring(name.length + 1);
+            }
+        })
+
+        return result;     
+    }
+
+    setCookie('dark', true, 1);
+    console.log(getCookie('dark'));
+
+    document.getElementById('menu').addEventListener('click', function(){
+        document.getElementById('nav-menu').classList.toggle('show');
+    })
+
+</script>
+</html>
