@@ -48,13 +48,16 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        header nav a#exit-btn{
+        header nav span#exit-btn{
+            display: inline-block;
             height: 40px;
             width: 40px;
+            font-size: 30px;
+            color: white;
             border-radius: 20px;
-            line-height: 40px;
             text-align: center;
             border: 3px white solid;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         header span.menu {
@@ -73,7 +76,7 @@
             <a href="#">home</a>
             <a href="#">blog</a>
             <a href="#">about</a>
-            <a href="" id="exit-btn">x</a>
+            <span id="exit-btn">x</span>
         </nav>
 
         <span class="menu" id="menu">🍔</span>
@@ -105,11 +108,29 @@
         return result;     
     }
 
-    setCookie('dark', true, 1);
-    console.log(getCookie('dark'));
+    let dark;
+    if (!JSON.parse(getCookie('dark'))){
+        dark = false;
+        setCookie('dark', dark, 1);
+    } 
+    dark = JSON.parse(getCookie('dark'));
+
+    if (dark){
+        document.getElementById('nav-menu').classList.add('show');
+    }
+
+    function setDarkToggle(){
+        dark = !dark;
+        setCookie('dark', dark, 1);
+        document.getElementById('nav-menu').classList.toggle('show');
+    }
 
     document.getElementById('menu').addEventListener('click', function(){
-        document.getElementById('nav-menu').classList.toggle('show');
+        setDarkToggle()
+    })
+
+    document.getElementById('exit-btn').addEventListener('click', function(){
+        setDarkToggle()
     })
 
 </script>
