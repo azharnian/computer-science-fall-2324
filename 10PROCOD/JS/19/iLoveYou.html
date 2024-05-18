@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You!</title>
+</head>
+<body>
+    <h1>Wait 3 Seconds...</h1>
+
+    <button>I can't wait !!!</button>
+
+    <script>
+        let counter = 3;
+        const h1Text = document.querySelector('h1');
+        const interval = setInterval(()=>{
+            counter--;
+            h1Text.innerHTML = `Wait ${counter} Seconds...`;
+        }, 1000);
+
+        const alarm = setTimeout(()=>{
+            clearInterval(interval);
+            h1Text.innerHTML = 'I love you 3000 ❤️';
+        }, 3000);
+
+        document.querySelector('button').addEventListener('click', ()=>{
+            clearInterval(interval);
+            clearTimeout(alarm);
+            h1Text.innerHTML = 'Yaaaa.... 😥 😭'
+        })
+    </script>
+</body>
+</html>
